@@ -1,4 +1,13 @@
 -- database: ../database/POLITINDER.sqlite
+/*
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| edison.vera02@epn.edu.ec   edsnvr      |
+|----------------------------------------|
+Autor: edsnvr
+Fecha: 18.feb.2k24
+Script: Creacion de la tabla Regalo + datos
+*/
 DROP TABLE IF EXISTS Regalo;
 
 CREATE TABLE Regalo(

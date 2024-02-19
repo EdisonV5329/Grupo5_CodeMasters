@@ -8,7 +8,6 @@ Autor: mateitopro
 Fecha: 19.feb.2k24
 Script: Creacion de la tabla PersonaSexo + datos
 */
-
 DROP TABLE IF EXISTS PersonaSexo;
 
 CREATE TABLE PersonaSexo (
