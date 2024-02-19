@@ -28,7 +28,7 @@ INSERT INTO Persona (
     ,Cedula
     ,Nombre
 ) VALUES(
-    '2'
+    '4'
     ,'1'
     ,'2038745129'
     ,'Virginia'
@@ -39,7 +39,7 @@ INSERT INTO Persona (
     ,Cedula
     ,Nombre
 ) VALUES(
-    '2'
+    '4'
     ,'2'
     ,'1029384756'
     ,'Mateo'

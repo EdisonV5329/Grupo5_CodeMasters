@@ -2,6 +2,7 @@ import java.sql.ResultSet;
 
 // import DataAccess.DACRegaloTipo;
 import DataAccess.*;
+import DataAccess.DTO.PersonaRolDTO;
 import DataAccess.DTO.PersonaSexoDTO;
 
 public class App {
@@ -39,9 +40,22 @@ public class App {
         }
         System.out.println();
         
+        System.out.println("info de la base Persona");
+        DACPersona Persona = new DACPersona();
+        ResultSet rs_Persona = Persona.getAllPersona();
+        while(rs_Persona.next()){
+            System.out.println( rs_Persona.getString(1) + " " + 
+                                rs_Persona.getString(2) + " " +
+                                rs_Persona.getString(3) + " " +
+                                rs_Persona.getString(4) + " " +
+                                rs_Persona.getString(5) + " " +
+                                rs_Persona.getString(6));
+        }
+        System.out.println();
+        
 //////////////////////////////////////////////////////////////////////////////////
 
-        System.out.println("info de la base Regalo");
+        System.out.println("info de la base PersonaSexo");
         // SexoDTO s = new SexoDTO();
         // s.setIdSexo(3);
         // s.setNombre("Hibrido");
@@ -49,11 +63,20 @@ public class App {
         // oS.create(s);   
         // oS.update(s);   
         // System.out.println(oS.readBy(3).toString());
-
-
         for (PersonaSexoDTO s : oS.readAll()) {
             System.out.println(s.toString());
         }
+        System.out.println();
+
+        System.out.println("info de la base PersonaRol");
+
+        PersonaRolDAO oPR = new PersonaRolDAO();
+
+
+        for (PersonaRolDTO r : oPR.readAll()) {
+            System.out.println(r.toString());
+        }
+
 
     }
 }

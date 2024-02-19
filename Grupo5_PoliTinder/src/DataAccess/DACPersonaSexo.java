@@ -7,7 +7,7 @@ import java.sql.Statement;
 public class DACPersonaSexo extends SQLiteDataHelper {
     public ResultSet getAllSexo () throws Exception {
         String query =      "SELECT IdPersonaSexo, Nombre "
-                        +   "FROM Sexo ";
+                        +   "FROM PersonaSexo ";
                         // +   "WHERE IdPersonaSexo = 1"; 
         try {
             Connection conn = openConnection(); // jdbc:sqlite:data\\basedeDatos.db
