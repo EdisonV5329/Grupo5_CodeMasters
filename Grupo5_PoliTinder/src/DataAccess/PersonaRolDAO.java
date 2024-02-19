@@ -10,16 +10,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import DataAccess.DTO.PersonaSexoDTO;
+import DataAccess.DTO.PersonaRolDTO;
 
-public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexoDTO>{
+public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDTO>{
     @Override
-    public boolean create(PersonaSexoDTO entity) throws Exception {
-        String query = "INSERT INTO PersonaSexo (Nombre) VALUES (?)";
+    public boolean create(PersonaRolDTO entity) throws Exception {
+        String query = "INSERT INTO PersonaRol (IdPersonaRol_Padre, Nombre) VALUES (?,?)";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, entity.getNombre());
+            pstmt.setInt(1, entity.getIdPersonaRol_Padre());
+            pstmt.setString(2, entity.getNombre());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -28,25 +29,27 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
     }
 
     @Override
-    public List<PersonaSexoDTO> readAll() throws Exception {
-        List <PersonaSexoDTO> lst = new ArrayList<>();
-        String query = " SELECT IdPersonaSexo "
+    public List<PersonaRolDTO> readAll() throws Exception {
+        List <PersonaRolDTO> lst = new ArrayList<>();
+        String query = " SELECT IdPersonaRol  "
+                     + " , IdPersonaRol_Padre "
                      + " , Nombre             "
                      + " , Estado             "
                      + " , FechaCrea          "
                      + " , FechaModifica      "
-                     + " FROM PersonaSexo     "
+                     + " FROM PersonaRol      "
                      + " WHERE Estado = 'A' ";
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()){
-                PersonaSexoDTO s = new PersonaSexoDTO(  rs.getInt(1)       // Id
-                                        , rs.getString(2)    // Nombre       
-                                        , rs.getString(3)    // Estado       
-                                        , rs.getString(4)    // FechaCrea    
-                                        , rs.getString(5));  // FechaModifica
+                PersonaRolDTO s = new PersonaRolDTO(  rs.getInt(1)       // Id
+                                        , rs.getInt(2)                   // IdPersonaRol_Padre      
+                                        , rs.getString(3)                // Nombre       
+                                        , rs.getString(4)                // Estado       
+                                        , rs.getString(5)                // FechaCrea    
+                                        , rs.getString(6));              // FechaModifica
                 lst.add(s);
             }
         } catch (SQLException e) {
@@ -56,25 +59,27 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
     }
 
     @Override
-    public PersonaSexoDTO readBy (Integer id) throws Exception {
-        PersonaSexoDTO oS = new PersonaSexoDTO();
-        String query = " SELECT IdPersonaSexo "
+    public PersonaRolDTO readBy (Integer id) throws Exception {
+        PersonaRolDTO oS = new PersonaRolDTO();
+        String query = " SELECT IdPersonaRol  "
+                     + " , IdPersonaRol_Padre "
                      + " , Nombre             "
                      + " , Estado             "
                      + " , FechaCrea          "
                      + " , FechaModifica      "
-                     + " FROM PersonaSexo     "
-                     + " WHERE Estado = 'A' AND IdPersonaSexo = " + id.toString();
+                     + " FROM PersonaRol      "
+                     + " WHERE Estado = 'A' AND IdPersonaRol = " + id.toString();
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()){
-                oS = new PersonaSexoDTO(  rs.getInt(1)       // Id
-                                        , rs.getString(2)    // Nombre       
-                                        , rs.getString(3)    // Estado       
-                                        , rs.getString(4)    // FechaCrea    
-                                        , rs.getString(5));  // FechaModifica
+                oS = new PersonaRolDTO(  rs.getInt(1)        // Id
+                                        , rs.getInt(2)       // IdPersonaRol_Padre       
+                                        , rs.getString(3)    // Nombre       
+                                        , rs.getString(4)    // Estado       
+                                        , rs.getString(5)    // FechaCrea    
+                                        , rs.getString(6));  // FechaModifica
             }
         } catch (SQLException e) {
             throw e;
@@ -83,16 +88,17 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
     }
 
     @Override
-    public boolean update(PersonaSexoDTO entity) throws Exception {
+    public boolean update(PersonaRolDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query = "UPDATE PersonaSexo SET Nombre = ?, FechaModifica = ? WHERE IdPersonaSexo = ?";
+        String query = "UPDATE PersonaRol SET Nombre = ?, IdPersonaRol_Padre =?, FechaModifica = ? WHERE IdPersonaRol = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, entity.getNombre());
-            pstmt.setString(2, dtf.format(now).toString());
-            pstmt.setInt(3  , entity.getIdPersonaSexo());
+            pstmt.setInt(2, entity.getIdPersonaRol_Padre());
+            pstmt.setString(3, dtf.format(now).toString());
+            pstmt.setInt(3  , entity.getIdPersonaRol());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -102,7 +108,7 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = "UPDATE PersonaSexo SET Estado = ? WHERE IdPersonaSexo = ?";
+        String query = "UPDATE PersonaRol SET Estado = ? WHERE IdPersonaRol = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
