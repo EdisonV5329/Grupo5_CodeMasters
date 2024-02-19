@@ -1,4 +1,4 @@
--- database: ../database/RELACION_TIPO.sqlite
+-- database: ../database/POLITINDER.sqlite
 DROP TABLE IF EXISTS RelacionTipo;
 
 CREATE TABLE RelacionTipo(

@@ -1,4 +1,4 @@
--- database: ../database/REGALO.sqlite
+-- database: ../database/POLITINDER.sqlite
 DROP TABLE IF EXISTS Regalo;
 
 CREATE TABLE Regalo(
