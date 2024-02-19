@@ -2,6 +2,7 @@ import java.sql.ResultSet;
 
 // import DataAccess.DACRegaloTipo;
 import DataAccess.*;
+import DataAccess.DTO.PersonaSexoDTO;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -35,6 +36,23 @@ public class App {
                                 rs_Regalo.getString(4) + " " +
                                 rs_Regalo.getString(5) + " " +
                                 rs_Regalo.getString(6));
+        }
+        System.out.println();
+        
+//////////////////////////////////////////////////////////////////////////////////
+
+        System.out.println("info de la base Regalo");
+        // SexoDTO s = new SexoDTO();
+        // s.setIdSexo(3);
+        // s.setNombre("Hibrido");
+        PersonaSexoDAO oS = new PersonaSexoDAO();
+        // oS.create(s);   
+        // oS.update(s);   
+        // System.out.println(oS.readBy(3).toString());
+
+
+        for (PersonaSexoDTO s : oS.readAll()) {
+            System.out.println(s.toString());
         }
 
     }
