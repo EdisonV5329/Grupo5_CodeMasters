@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DACPersonaRol extends SQLiteDataHelper {
-        public ResultSet getAllSexo () throws Exception {
+        public ResultSet getAllPersonaRol () throws Exception {
         String query =      "SELECT IdPersonaRol, Nombre "
                         +   "FROM PersonaRol ";
         try {

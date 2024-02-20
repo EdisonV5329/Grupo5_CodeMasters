@@ -4,10 +4,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DACPersonaSexo extends SQLiteDataHelper {
-    public ResultSet getAllPersonaSexo () throws Exception {
-        String query =      "SELECT IdPersonaSexo, Nombre "
-                        +   "FROM PersonaSexo ";
+public class DACCita extends SQLiteDataHelper {
+    public ResultSet getAllCita () throws Exception {
+        String query = "SELECT IdCita"
+                     + ", IdPersona1"
+                     + ", IdPerson2"
+                     + ", FechaCita "
+                     +   "FROM Cita ";
         try {
             Connection conn = openConnection(); 
             Statement stmt = conn.createStatement();  

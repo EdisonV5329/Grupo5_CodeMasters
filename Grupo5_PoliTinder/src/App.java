@@ -2,8 +2,10 @@ import java.sql.ResultSet;
 
 // import DataAccess.DACRegaloTipo;
 import DataAccess.*;
+import DataAccess.DTO.CitaDTO;
 import DataAccess.DTO.PersonaRolDTO;
 import DataAccess.DTO.PersonaSexoDTO;
+import DataAccess.DTO.RelacionDTO;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -88,6 +90,26 @@ public class App {
         for (PersonaRolDTO r : oPR.readAll()) {
             System.out.println(r.toString());
         }
+        System.out.println();
+
+        System.out.println("info de la base Relacion");
+
+        RelacionDAO rD = new RelacionDAO();
+
+
+        for (RelacionDTO r : rD.readAll()) {
+            System.out.println(r.toString());
+        }
+        System.out.println();
+
+        System.out.println("info de la base Cita");
+
+        CitaDAO c = new CitaDAO();
+
+        for (CitaDTO cD : c.readAll()) {
+            System.out.println(cD.toString());
+        }
+
 
 
     }
