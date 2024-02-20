@@ -53,6 +53,18 @@ public class App {
         }
         System.out.println();
         
+        System.out.println("info de la base RegaloEnvio");
+        DACRegaloEnvio RegaloEnvio = new DACRegaloEnvio();
+        ResultSet rs_RegaloEnvio = RegaloEnvio.getAllRegaloEnvio();
+        while(rs_RegaloEnvio.next()){
+            System.out.println( rs_RegaloEnvio.getString(1) + " " + 
+                                rs_RegaloEnvio.getString(2) + " " +
+                                rs_RegaloEnvio.getString(3) + " " +
+                                rs_RegaloEnvio.getString(4) + " " +
+                                rs_RegaloEnvio.getString(5));
+        }
+        System.out.println();
+        
 //////////////////////////////////////////////////////////////////////////////////
 
         System.out.println("info de la base PersonaSexo");
