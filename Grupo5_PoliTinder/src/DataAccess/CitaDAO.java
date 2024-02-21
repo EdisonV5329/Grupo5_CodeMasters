@@ -124,4 +124,20 @@ public class CitaDAO extends SQLiteDataHelper implements IDAO<CitaDTO> {
             throw e;
         }
     }   
+
+    @Override
+    public boolean restore(Integer id) throws Exception{
+        String  query = "UPDATE Cita SET Estado = ? WHERE IdCita = ?";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,"A"); 
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch(SQLException e){
+            throw e;
+        }
+    }
 }

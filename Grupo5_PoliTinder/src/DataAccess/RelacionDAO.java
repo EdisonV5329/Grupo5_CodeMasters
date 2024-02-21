@@ -130,4 +130,20 @@ public class RelacionDAO extends SQLiteDataHelper implements IDAO<RelacionDTO> {
             throw e;
         }
     }
+
+    @Override
+    public boolean restore(Integer id) throws Exception{
+        String  query = "UPDATE Relacion SET Estado = ? WHERE IdRelacion = ?";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,"A"); 
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch(SQLException e){
+            throw e;
+        }
+    }
 }

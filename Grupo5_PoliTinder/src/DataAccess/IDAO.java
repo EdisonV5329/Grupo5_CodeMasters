@@ -8,4 +8,5 @@ public interface IDAO <T>{
     public T readBy (Integer id) throws Exception;
     public boolean update (T entity) throws Exception;
     public boolean delete (Integer id) throws Exception;
+    public boolean restore(Integer id) throws Exception;
 }

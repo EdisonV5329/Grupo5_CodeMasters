@@ -120,4 +120,20 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
             throw e;
         }
     }
+
+    @Override
+    public boolean restore(Integer id) throws Exception{
+        String  query = "UPDATE PersonaRol SET Estado = ? WHERE IdPersonaRol = ?";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,"A"); 
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch(SQLException e){
+            throw e;
+        }
+    }
 }

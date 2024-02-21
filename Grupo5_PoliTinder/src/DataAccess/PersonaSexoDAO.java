@@ -114,4 +114,20 @@ public class PersonaSexoDAO extends SQLiteDataHelper implements IDAO<PersonaSexo
             throw e;
         }
     }
+
+    @Override
+    public boolean restore(Integer id) throws Exception{
+        String  query = "UPDATE PersonaSexo SET Estado = ? WHERE IdPersonaSexo = ?";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,"A"); 
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch(SQLException e){
+            throw e;
+        }
+    }
 }
