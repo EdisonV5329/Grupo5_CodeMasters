@@ -48,8 +48,19 @@ public class AssistControl {
         // System.out.println(empleado.toString());
         // Administrador.modificarEmpleado(empleado);
 
+        // if(Administrador.anadirCargo())
+        //     System.out.println("cargo ingresado con exito");
         
+        // if(Administrador.modificarCargo())
+        //     System.out.println("cargo modificado con exito");
         
+        // if(Administrador.borrarCargo())
+        //     System.out.println("cargo eliminado con exito");
+    
+            // if(Administrador.recuperarCargo())
+            //     System.out.println("cargo recuperado con exito");
+    
+    
 
     }
 }

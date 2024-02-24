@@ -47,8 +47,8 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
                         + ",Estado          "
                         + ",FechaCrea       "
                         + ",FechaModifica   "
-                        + " FROM   Cargo"
-                        + " WHERE  Estado = 'A' ";
+                        + " FROM   Cargo";
+                        // + " WHERE  Estado = 'A' ";
         try{
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();

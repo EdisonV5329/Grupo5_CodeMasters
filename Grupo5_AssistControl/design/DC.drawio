@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="lH5fCbZ_AQfIexLqE5lS" name="Página-1">
-        <mxGraphModel dx="1758" dy="776" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="1612" dy="712" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -130,7 +130,7 @@
                     <mxGeometry x="197" y="408" width="73" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="88" value="Admin" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;strokeColor=#B20000;fontColor=#ffffff;fillColor=#e51400;" vertex="1" parent="1">
-                    <mxGeometry x="697" y="278" width="228" height="320" as="geometry"/>
+                    <mxGeometry x="697" y="278" width="228" height="346" as="geometry"/>
                 </mxCell>
                 <mxCell id="102" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;fontSize=10;fontColor=#000000;startArrow=none;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="88" source="92" target="88">
                     <mxGeometry relative="1" as="geometry">
@@ -176,6 +176,9 @@
                 </mxCell>
                 <mxCell id="101" value="+ modificarAsistencias(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#000000;" vertex="1" parent="88">
                     <mxGeometry y="294" width="228" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="+ anadirCargo(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#000000;fontSize=11;" vertex="1" parent="88">
+                    <mxGeometry y="320" width="228" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="103" value="&lt;u&gt;- instancia&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
                     <mxGeometry x="898" y="206" width="73" height="26" as="geometry"/>
