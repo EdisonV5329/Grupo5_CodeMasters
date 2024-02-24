@@ -7,7 +7,6 @@ Autor: dsn_vr
 Fecha: 23.feb.2k24
 src: Creacion de la clase AssistControl
 */
-
 import BusinessLogic.CargoBL;
 import DataAccess.CargoDAO;
 import DataAccess.DTO.CargoDTO;
