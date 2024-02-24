@@ -9,7 +9,9 @@ src: Creacion de la clase AssistControl
 */
 import BusinessLogic.CargoBL;
 import DataAccess.CargoDAO;
+import DataAccess.EmpleadoDAO;
 import DataAccess.DTO.CargoDTO;
+import DataAccess.DTO.EmpleadoDTO;
 
 public class AssistControl {
     private static String nombre;
@@ -35,13 +37,8 @@ public class AssistControl {
     }
 
     public void iniciarPrograma() throws Exception{
-        Admin Administrador = Admin.getInstancia("dsn_vr", "Ve230027@", "Edison", "Vera");
-        // Admin Admin2 = Admin.getInstancia("pat_mic", "Vedisoñ230027", "Patricio", "Paccha");
-        // Admin Admin3 = Admin.getInstancia("mateito_pro", "Vedisoñ2300@", "Mateo", "Simbana");
+        Admin Administrador = Admin.getInstancia("dsn_vr", "Ve2300@", "Edison", "Vera");
 
-        // System.out.println(Administrador.getNombre() + " | " + Administrador.getUsuario());
-        // System.out.println(Admin2.getNombre() + " | " + Admin2.getUsuario());
-        // System.out.println(Admin3.getNombre() + " | " + Admin3.getUsuario());
         Empleado empleado  = new Empleado();
 
         // Administrador.anadirEmpleado(empleado);
@@ -57,10 +54,30 @@ public class AssistControl {
         // if(Administrador.borrarCargo())
         //     System.out.println("cargo eliminado con exito");
     
-            // if(Administrador.recuperarCargo())
-            //     System.out.println("cargo recuperado con exito");
+        // if(Administrador.recuperarCargo())
+        //     System.out.println("cargo recuperado con exito");
     
-    
+        // EmpleadoDTO e = new EmpleadoDTO();
+        // e.setNombre("Emilio");
+        // e.setApellido("Gavilanez");
+        // e.setIdCargo(5);
+        // // e.setCedula("2109876543");
+        // e.setHoraAmEntrada("08:00:00");
+        // e.setHoraAmSalida("12:00:00");
+        // e.setHoraPmEntrada("13:00:00");
+        // e.setHoraPmSalida("17:00:00");
+        // e.setIdEmpleado(1);
 
+        
+        // EmpleadoDAO oE = new EmpleadoDAO();
+        // // oE.create(e);
+        // // oE.update(e);
+        // System.out.println(oE.readBy(1));
+        // // oE.delete(1);
+        // oE.restore(1);
+
+        // // for (EmpleadoDTO s : oE.readAll()) {
+        // //     System.out.println(s.toString());
+        // // }
     }
 }

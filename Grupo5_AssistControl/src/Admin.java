@@ -74,7 +74,7 @@ public class Admin extends Usuario {
     }
 
     public void verRegistroAsistencias(){
-
+        
     }
 
     public void modificarAsistencia(){
