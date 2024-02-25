@@ -61,7 +61,7 @@ public class AssistControl {
         // e.setNombre("Emilio");
         // e.setApellido("Gavilanez");
         // e.setIdCargo(5);
-        // // e.setCedula("2109876543");
+        // e.setCedula("2109876543");
         // e.setHoraAmEntrada("08:00:00");
         // e.setHoraAmSalida("12:00:00");
         // e.setHoraPmEntrada("13:00:00");
@@ -72,12 +72,15 @@ public class AssistControl {
         // EmpleadoDAO oE = new EmpleadoDAO();
         // // oE.create(e);
         // // oE.update(e);
-        // System.out.println(oE.readBy(1));
+        // // System.out.println(oE.readBy(1).toString());
         // // oE.delete(1);
-        // oE.restore(1);
+        // // oE.restore(1);
 
-        // // for (EmpleadoDTO s : oE.readAll()) {
-        // //     System.out.println(s.toString());
-        // // }
+        // for (EmpleadoDTO s : oE.readAll()) {
+        //     System.out.println(s.toString());
+        // }
+
+
+        
     }
 }
