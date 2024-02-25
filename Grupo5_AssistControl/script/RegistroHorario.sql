@@ -27,23 +27,37 @@ CREATE TABLE RegistroHorario(
 INSERT INTO RegistroHorario (IdEmpleado, IdEstatus, HoraAmEntrada, HoraAmSalida, HoraPmEntrada, HoraPmSalida) VALUES
 (1, 2, "7:30", "12:00", "14:00", "17:00");
 
-SELECT rh.IdRegistroHorario IdRegistroHorario
-       , em.Nombre Nombre
-       , rh.HoraAmEntrada HoraAmEntrada
-       , rh.HoraAmSalida HoraAmSalida
-       , rh.HoraPmEntrada HoraPmEntrada
-       , rh.HoraPmSalida HoraPmSalida
-       , es.Nombre Estatus
-       , rh.FechaCrea Fecha
-FROM RegistroHorario               rh 
-JOIN Empleado     em ON em.IdEmpleado = rh.IdEmpleado
-JOIN Estatus      es ON es.IdEstatus  = rh.IdEstatus
-WHERE   rh.Estado = 'A'
-AND     em.Estado = 'A'
-AND     es.Estado = 'A';
 
-SELECT COUNT (*) TotalRegistroHorario 
-FROM RegistroHorario
+SELECT   IdRegistroHorario
+       , IdEmpleado
+       , IdEstatus
+       , HoraAmEntrada
+       , HoraAmSalida
+       , HoraPmEntrada
+       , HoraPmSalida
+       , Estado
+       , FechaCrea
+       , FechaModifica
+FROM RegistroHorario              
 WHERE Estado = 'A';
+
+-- SELECT rh.IdRegistroHorario IdRegistroHorario
+--        , em.Nombre Nombre
+--        , rh.HoraAmEntrada HoraAmEntrada
+--        , rh.HoraAmSalida HoraAmSalida
+--        , rh.HoraPmEntrada HoraPmEntrada
+--        , rh.HoraPmSalida HoraPmSalida
+--        , es.Nombre Estatus
+--        , rh.FechaCrea Fecha
+-- FROM RegistroHorario               rh 
+-- JOIN Empleado     em ON em.IdEmpleado = rh.IdEmpleado
+-- JOIN Estatus      es ON es.IdEstatus  = rh.IdEstatus
+-- WHERE   rh.Estado = 'A'
+-- AND     em.Estado = 'A'
+-- AND     es.Estado = 'A';
+
+-- SELECT COUNT (*) TotalRegistroHorario 
+-- FROM RegistroHorario
+-- WHERE Estado = 'A';
 
 

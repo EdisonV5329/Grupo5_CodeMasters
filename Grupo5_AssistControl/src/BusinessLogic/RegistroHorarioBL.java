@@ -19,16 +19,16 @@ public class RegistroHorarioBL {
 
     public RegistroHorarioBL() {};
 
+    public boolean create(RegistroHorarioDTO registroHorarioDTO) throws Exception{   
+        return rDAO.create(registroHorarioDTO);
+    }
+
+    public boolean update(RegistroHorarioDTO registroHorarioDTO) throws Exception{
+        return rDAO.update(registroHorarioDTO);
+    }
+
     public List<RegistroHorarioDTO> getAll() throws Exception{
         return rDAO.readAll();
-    }
-    
-    public List<RegistroHorarioDTO> getAllPuntual() throws Exception{
-        return rDAO.readAllEstructura("A tiempo");
-    }
-    
-    public List<RegistroHorarioDTO> getAllAtraso() throws Exception{
-        return rDAO.readAllEstructura("Atrasado");
     }
 
     public RegistroHorarioDTO getByIdEmpleado(int idEmpleado) throws Exception{

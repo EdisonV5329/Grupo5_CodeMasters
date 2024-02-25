@@ -11,27 +11,33 @@ package DataAccess.DTO;
 
 public class RegistroHorarioDTO  {
     private Integer IdRegistroHorario;
-    private String Nombre;
+    private Integer IdEmpleado;
+    private Integer IdEstatus;
     private String  HoraAmEntrada;
     private String  HoraAmSalida;
     private String  HoraPmEntrada;
     private String  HoraPmSalida;
-    private String Estatus; 
+    private String  Estado; 
     private String  FechaCrea;
+    private String  FechaModifica;
 
-    public RegistroHorarioDTO(Integer idRegistroHorario, String nombre, String horaAmEntrada, String horaAmSalida,
-            String horaPmEntrada, String horaPmSalida, String estatus, String fechaCrea) {
+    public RegistroHorarioDTO() {
+    }
+
+    public RegistroHorarioDTO(Integer idRegistroHorario, Integer idEmpleado, Integer idEstatus, String horaAmEntrada,
+            String horaAmSalida, String horaPmEntrada, String horaPmSalida, String estado, String fechaCrea,
+            String fechaModifica) {
         IdRegistroHorario = idRegistroHorario;
-        Nombre = nombre;
+        IdEmpleado = idEmpleado;
+        IdEstatus = idEstatus;
         HoraAmEntrada = horaAmEntrada;
         HoraAmSalida = horaAmSalida;
         HoraPmEntrada = horaPmEntrada;
         HoraPmSalida = horaPmSalida;
-        Estatus = estatus;
+        Estado = estado;
         FechaCrea = fechaCrea;
+        FechaModifica = fechaModifica;
     }
-
-    public RegistroHorarioDTO() {}
 
     public Integer getIdRegistroHorario() {
         return IdRegistroHorario;
@@ -41,12 +47,20 @@ public class RegistroHorarioDTO  {
         IdRegistroHorario = idRegistroHorario;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public Integer getIdEmpleado() {
+        return IdEmpleado;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setIdEmpleado(Integer idEmpleado) {
+        IdEmpleado = idEmpleado;
+    }
+
+    public Integer getIdEstatus() {
+        return IdEstatus;
+    }
+
+    public void setIdEstatus(Integer idEstatus) {
+        IdEstatus = idEstatus;
     }
 
     public String getHoraAmEntrada() {
@@ -81,12 +95,12 @@ public class RegistroHorarioDTO  {
         HoraPmSalida = horaPmSalida;
     }
 
-    public String getEstatus() {
-        return Estatus;
+    public String getEstado() {
+        return Estado;
     }
 
-    public void setEstatus(String estatus) {
-        Estatus = estatus;
+    public void setEstado(String estado) {
+        Estado = estado;
     }
 
     public String getFechaCrea() {
@@ -97,17 +111,27 @@ public class RegistroHorarioDTO  {
         FechaCrea = fechaCrea;
     }
 
+    public String getFechaModifica() {
+        return FechaModifica;
+    }
+
+    public void setFechaModifica(String fechaModifica) {
+        FechaModifica = fechaModifica;
+    }
+
     @Override
     public String toString(){
         return getClass().getName()
         + "\n IdRegistroHorario: "+ getIdRegistroHorario()       
-        + "\n Nombre:            "+ getNombre()       
+        + "\n IdEmpleado:        "+ getIdEmpleado()       
+        + "\n IdEstatus:         "+ getIdEstatus()       
         + "\n HoraAmEntrada:     "+ getHoraAmEntrada()       
         + "\n HoraAmSalida:      "+ getHoraPmEntrada()       
         + "\n HoraPmEntrada:     "+ getHoraPmEntrada()       
         + "\n HoraPmSalida:      "+ getHoraPmSalida()       
-        + "\n Estatus:           "+ getEstatus()       
-        + "\n Fecha:             "+ getFechaCrea();    
+        + "\n Estado:            "+ getEstado()     
+        + "\n FechaCrea:         "+ getFechaCrea()    
+        + "\n FechaModifica:     "+ getFechaModifica();    
     }
 
 }
