@@ -17,26 +17,11 @@ public class RegistroHorarioDTO  {
     private String  HoraAmSalida;
     private String  HoraPmEntrada;
     private String  HoraPmSalida;
-<<<<<<< HEAD
     private String  Estatus; 
-=======
     private String  Estado; 
->>>>>>> d71aa054db976342a72192d7c87c72115c75172a
     private String  FechaCrea;
     private String  FechaModifica;
 
-<<<<<<< HEAD
-    public RegistroHorarioDTO(Integer idRegistroHorario, String nombre, String horaAmEntrada, String horaAmSalida,
-            String horaPmEntrada, String horaPmSalida, String estatus, String fechaCrea) {
-        this.IdRegistroHorario = idRegistroHorario;
-        this.Nombre = nombre;
-        this.HoraAmEntrada = horaAmEntrada;
-        this.HoraAmSalida = horaAmSalida;
-        this.HoraPmEntrada = horaPmEntrada;
-        this.HoraPmSalida = horaPmSalida;
-        this.Estatus = estatus;
-        this.FechaCrea = fechaCrea;
-=======
     public RegistroHorarioDTO() {
     }
 
@@ -53,7 +38,6 @@ public class RegistroHorarioDTO  {
         Estado = estado;
         FechaCrea = fechaCrea;
         FechaModifica = fechaModifica;
->>>>>>> d71aa054db976342a72192d7c87c72115c75172a
     }
 
     public Integer getIdRegistroHorario() {
