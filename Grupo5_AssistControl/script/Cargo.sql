@@ -6,7 +6,7 @@
 |----------------------------------------|
 Autor: dsn_vr
 Fecha: 22.feb.2k24
-Script: Creacion de la tabla Cargo + datos
+script: Creacion de la tabla Cargo + datos
 */
 DROP TABLE IF EXISTS Cargo;
 
