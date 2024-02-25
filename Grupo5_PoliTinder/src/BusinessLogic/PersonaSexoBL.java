@@ -1,5 +1,5 @@
 package BusinessLogic;
 
-public class SexoBL {
+public class PersonaSexoBL {
     
 }
