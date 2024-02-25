@@ -79,7 +79,8 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
                         + ",FechaCrea       "
                         + ",FechaModifica   "
                         + " FROM   Cargo"
-                        + " WHERE  Estado = 'A' AND IdCargo = " + id.toString();
+                        // + " WHERE  Estado = 'A' " 
+                        + " WHERE IdCargo = " + id.toString();
         try{
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -103,6 +104,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
     public boolean update(CargoDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
+        
         String query = "UPDATE Cargo SET Nombre = ?, IdCargoPadre = ?, FechaModifica = ?"
                        + "WHERE IdCargo = ?";
         try {

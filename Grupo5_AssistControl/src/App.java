@@ -1,4 +1,10 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
+import BusinessLogic.EstatusBL;
+import BusinessLogic.RegistroHorarioBL;
+import DataAccess.DTO.EstatusDTO;
 
 public class App {
     public static Scanner sc = new Scanner(System.in);
@@ -7,5 +13,20 @@ public class App {
         AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
         System.out.println(AssistControl.getNombre());
         AssistControl1.iniciarPrograma();
+        // EstatusBL bl = new EstatusBL();
+        // System.out.println(bl.getBy(4));
+
+        // for (EstatusDTO dto : bl.getAll()) {
+        //     System.out.println(dto.toString());
+        // }
+        // bl.add("Enfermedad");
+
+
+        // RegistroHorarioBL  regHoraBl = new RegistroHorarioBL();
+        // System.out.println(regHoraBl.getByIdEmpleado(1));
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now.getDayOfWeek());
     }
 }

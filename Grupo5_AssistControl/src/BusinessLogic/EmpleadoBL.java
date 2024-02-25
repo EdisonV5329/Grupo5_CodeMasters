@@ -24,8 +24,8 @@ public class EmpleadoBL {
         return empleadoDAO.readAll();
     }
     
-    public EmpleadoDTO getBy(int idCargo) throws Exception{
-        empleadoDTO = empleadoDAO.readBy(idCargo);
+    public EmpleadoDTO getBy(int idEmpleado) throws Exception{
+        empleadoDTO = empleadoDAO.readBy(idEmpleado);
         return empleadoDTO;
     }
 

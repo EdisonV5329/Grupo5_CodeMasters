@@ -109,6 +109,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
                         + " ,FechaCrea       "
                         + " ,FechaModifica   "
                         + " FROM   Empleado";
+                        // + " WHERE IdEmpleado = " + id.toString();
                         // + " WHERE  Estado = 'A' ";
         try{
             Connection conn = openConnection();
