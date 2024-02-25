@@ -11,7 +11,7 @@ script: Creacion de la tabla Estatus
 DROP TABLE IF EXISTS Estatus;
 
 CREATE TABLE Estatus(
-    idEstatus       INTEGER PRIMARY KEY AUTOINCREMENT
+    IdEstatus       INTEGER PRIMARY KEY AUTOINCREMENT
     ,Nombre         TEXT        NOT NULL UNIQUE 
     ,Estado         VARCHAR(1)  NOT NULL DEFAULT('A') 
     ,FechaCrea      DATETIME    NOT NULL DEFAULT(datetime('now', 'localtime'))
