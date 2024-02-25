@@ -40,7 +40,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
     @Override
     public List<EstatusDTO> readAll() throws Exception {
         List<EstatusDTO> list = new ArrayList<>();
-        String query = "SELECT idEstatus, Nombre, Estado, FechaCrea, FechaModifica FROM Estatus WHERE Estado = 'A'";
+        String query = "SELECT IdEstatus, Nombre, Estado, FechaCrea, FechaModifica FROM Estatus";
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -63,7 +63,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
     @Override
     public EstatusDTO readBy(Integer id) throws Exception {
         EstatusDTO oS = new EstatusDTO();
-        String query = "SELECT idEstatus, Nombre, Estado, FechaCrea, FechaModifica FROM Estatus WHERE Estado = 'A' AND idEstatus = "+ id.toString();
+        String query = "SELECT IdEstatus, Nombre, Estado, FechaCrea, FechaModifica FROM Estatus WHERE Estado = 'A' AND IdEstatus = "+ id.toString();
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -86,7 +86,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
     public boolean update(EstatusDTO entity) throws Exception {
         DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query = "UPDATE Estatus SET Nombre = ?, FechaModifica = ? WHERE idEstatus = ?";
+        String query = "UPDATE Estatus SET Nombre = ?, FechaModifica = ? WHERE IdEstatus = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -102,7 +102,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = "UPDATE Estatus SET Estado = ? WHERE idEstatus = ?";
+        String query = "UPDATE Estatus SET Estado = ? WHERE IdEstatus = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -117,7 +117,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
 
     @Override
     public boolean restore(Integer id) throws Exception {
-        String query = "UPDATE Estatus SET Estado = ? WHERE idEstatus = ?";
+        String query = "UPDATE Estatus SET Estado = ? WHERE IdEstatus = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -129,5 +129,4 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
             throw e;
         }
     }
-    
 }
