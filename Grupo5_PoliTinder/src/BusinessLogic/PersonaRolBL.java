@@ -50,5 +50,9 @@ public class PersonaRolBL {
     public boolean restore(int idPersonaRol) throws Exception {
         return prDAO.restore(idPersonaRol);
     }
+
+    public int getMaxId() throws Exception{
+        return prDAO.getMaxIdPersonaRol();
+    }
     
 }

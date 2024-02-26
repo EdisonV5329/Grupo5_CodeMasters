@@ -136,4 +136,26 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
             throw e;
         }
     }
+
+    public int getMaxIdPersonaRol() throws Exception {
+        // String query = "SELECT COUNT(*) AS count FROM SEXO WHERE Estado = 'A'";
+        String query = "SELECT count(*)"
+                        + "FROM PersonaRol"
+                        + "WHERE Estado = 'A'";
+        try {
+            // Connection conn = openConnection();
+            // PreparedStatement pstmt = conn.prepareStatement(query);
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("count");
+            }
+            return 0; // Return 0 if no records found (optional)
+        } catch (SQLException e) {
+            throw e;
+            // throw new e Exception(e.getMessage(), getClass().getName(), "getCountOfEstadoA()");
+        }
+            
+    }
 }

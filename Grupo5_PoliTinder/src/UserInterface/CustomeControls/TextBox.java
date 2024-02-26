@@ -48,4 +48,12 @@ public class TextBox extends JTextField{
             BorderFactory.createMatteBorder(0, 0, size,0, Style.Color_Border)
         );
     }
+
+    public void setBorderLine(){
+        int thickness = 1;
+        setBorder(  BorderFactory.createCompoundBorder(
+                    BorderFactory.createEmptyBorder(0, 0, thickness, 0),
+                    BorderFactory.createMatteBorder(0, 0, thickness, 0, Style.Color_Border) 
+        ));
+    }
 }

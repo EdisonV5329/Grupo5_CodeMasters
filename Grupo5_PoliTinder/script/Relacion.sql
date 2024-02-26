@@ -6,7 +6,7 @@
 |----------------------------------------|
 Autor: mateitopro
 Fecha: 19.feb.2k24
-Script: Creacion de la tabla PersonaSexo + datos
+Script: Creacion de la tabla Relacion + datos
 */
 
 DROP TABLE IF EXISTS Relacion;

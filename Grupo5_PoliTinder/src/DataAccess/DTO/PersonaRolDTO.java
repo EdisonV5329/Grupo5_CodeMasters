@@ -1,17 +1,16 @@
 package DataAccess.DTO;
 
 public class PersonaRolDTO {
-    private int    IdPersonaRol;       
-    private int    IdPersonaRol_Padre; 
+    private Integer    IdPersonaRol;       
+    private Integer    IdPersonaRol_Padre; 
     private String Nombre;
     private String Estado;       
     private String FechaCrea;    
     private String FechaModifica;
     
-    public PersonaRolDTO() {
-    }
+    public PersonaRolDTO() {}
 
-    public PersonaRolDTO(int idPersonaRol, int idPersonaRol_Padre, String nombre, String estado, String fechaCrea,
+    public PersonaRolDTO(Integer idPersonaRol, Integer idPersonaRol_Padre, String nombre, String estado, String fechaCrea,
             String fechaModifica) {
         IdPersonaRol = idPersonaRol;
         IdPersonaRol_Padre = idPersonaRol_Padre;
@@ -21,19 +20,19 @@ public class PersonaRolDTO {
         FechaModifica = fechaModifica;
     }
 
-    public int getIdPersonaRol() {
+    public Integer getIdPersonaRol() {
         return IdPersonaRol;
     }
 
-    public void setIdPersonaRol(int idPersonaRol) {
+    public void setIdPersonaRol(Integer idPersonaRol) {
         IdPersonaRol = idPersonaRol;
     }
 
-    public int getIdPersonaRol_Padre() {
+    public Integer getIdPersonaRol_Padre() {
         return IdPersonaRol_Padre;
     }
 
-    public void setIdPersonaRol_Padre(int idPersonaRol_Padre) {
+    public void setIdPersonaRol_Padre(Integer idPersonaRol_Padre) {
         IdPersonaRol_Padre = idPersonaRol_Padre;
     }
 

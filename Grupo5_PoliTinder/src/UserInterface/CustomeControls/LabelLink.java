@@ -1,9 +1,6 @@
 package UserInterface.CustomeControls;
 
 import javax.swing.ImageIcon;
-
-import UserInterface.CustomeControls.Style;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
