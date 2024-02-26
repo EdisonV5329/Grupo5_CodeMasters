@@ -12,17 +12,19 @@ package DataAccess.DTO;
 public class CargoDTO {
     private int    IdCargo;
     private int    IdCargoPadre;
+    private int    IdEmpleadoHorario;
     private String Nombre;
     private String Estado;
     private String FechaCrea;
     private String FechaModifica;
-
+    
     public CargoDTO() {}
-
-    public CargoDTO(int idCargo, int idCargoPadre, String nombre, String estado, String fechaCrea,
-            String fechaModifica) {
+    
+    public CargoDTO(int idCargo, int idCargoPadre, int IdEmpleadoHorario, String nombre, String estado, String fechaCrea,
+    String fechaModifica) {
         this.IdCargo = idCargo;
         this.IdCargoPadre = idCargoPadre;
+        this.IdEmpleadoHorario = IdEmpleadoHorario;
         this.Nombre = nombre;
         this.Estado = estado;
         this.FechaCrea = fechaCrea;
@@ -40,6 +42,13 @@ public class CargoDTO {
     }
     public void setIdCargoPadre(int idCargoPadre) {
         IdCargoPadre = idCargoPadre;
+    }
+    public int getIdEmpleadoHorario() {
+        return IdEmpleadoHorario;
+    }
+
+    public void setIdEmpleadoHorario(int idEmpleadoHorario) {
+        IdEmpleadoHorario = idEmpleadoHorario;
     }
     public String getNombre() {
         return Nombre;
@@ -69,11 +78,12 @@ public class CargoDTO {
     @Override
     public String toString(){
         return getClass().getName()
-        + "\n IdCargo:          " + getIdCargo()
-        + "\n IdCargoPadre:     " + getIdCargoPadre()
-        + "\n Nombre:           " + getNombre()
-        + "\n Estado:           " + getEstado()
-        + "\n FechaCrea:        " + getFechaCrea()
-        + "\n FechaModifica:    " + getFechaModifica();
+        + "\n IdCargo:              " + getIdCargo()
+        + "\n IdCargoPadre:         " + getIdCargoPadre()
+        + "\n IdEmpleadoHorario     " + getIdEmpleadoHorario()
+        + "\n Nombre:               " + getNombre()
+        + "\n Estado:               " + getEstado()
+        + "\n FechaCrea:            " + getFechaCrea()
+        + "\n FechaModifica:        " + getFechaModifica();
     }
 }

@@ -16,11 +16,7 @@ CREATE TABLE Empleado(
     ,Nombre          VARCHAR(20)    NOT NULL                  
     ,Apellido        VARCHAR(20)    NOT NULL
     ,Cedula          VARCHAR(10)    NOT NULL UNIQUE
-    ,HuellaDigital   TEXT                 
-    ,HoraAmEntrada   TIME           NOT NULL             
-    ,HoraAmSalida    TIME           NOT NULL             
-    ,HoraPmEntrada   TIME           NOT NULL             
-    ,HoraPmSalida    TIME           NOT NULL
+    ,HuellaDigital   TEXT           NOT NULL      
     ,Estado          VARCHAR(1)     NOT NULL DEFAULT('A') 
     ,FechaCrea       DATETIME       NOT NULL DEFAULT(datetime('now', 'localtime'))
     ,FechaModifica   DATETIME             

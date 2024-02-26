@@ -29,17 +29,19 @@ public class CargoBL {
         return cargoDTO;
     }
 
-    public boolean add(String nombre, int idCargoPadre) throws Exception{
+    public boolean add(String nombre, int idCargoPadre, int idEmpleadoHorario) throws Exception{
         cargoDTO = new CargoDTO();
         cargoDTO.setNombre(nombre);
         cargoDTO.setIdCargoPadre(idCargoPadre);
+        cargoDTO.setIdEmpleadoHorario(idEmpleadoHorario);
         return cargoDAO.create(cargoDTO);
     }
 
-    public boolean update(int idCargo, String nombre, int idCargoPadre) throws Exception{
+    public boolean update(int idCargo, String nombre, int idCargoPadre, int idEmpleadoHorario) throws Exception{
         cargoDTO = new CargoDTO();
         cargoDTO.setNombre(nombre);
         cargoDTO.setIdCargoPadre(idCargoPadre);
+        cargoDTO.setIdEmpleadoHorario(idEmpleadoHorario);
         cargoDTO.setIdCargo(idCargo);
         return cargoDAO.update(cargoDTO);
     }

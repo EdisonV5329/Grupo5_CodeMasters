@@ -11,9 +11,11 @@ import java.util.Scanner;
 
 import BusinessLogic.CargoBL;
 import BusinessLogic.EmpleadoBL;
+import BusinessLogic.EmpleadoHorarioBL;
 import BusinessLogic.EstatusBL;
 import DataAccess.DTO.CargoDTO;
 import DataAccess.DTO.EmpleadoDTO;
+import DataAccess.DTO.EmpleadoHorarioDTO;
 import DataAccess.DTO.EstatusDTO;
 
 public class Admin extends Usuario {
@@ -48,34 +50,7 @@ public class Admin extends Usuario {
     }
 
     Scanner scanner = new Scanner(System.in);
-    public Empleado anadirEmpleado(Empleado empleado){
-        System.out.println("Ingresar la informacion del nuevo empleado");
-        System.out.print("Nombre: ");
-            empleado.setNombre(App.sc.nextLine());
-        System.out.print("Apellido: ");
-            empleado.setApellido(App.sc.nextLine());
-        System.out.print("Cargo: ");
-            empleado.setCargo(App.sc.nextLine());
-        System.out.print("Hora Entrada AM: ");
-            empleado.setHoraAmEntradaFijo(App.sc.nextLine());
-        System.out.print("Hora Salida AM: ");
-            empleado.setHoraAmSalidaFijo(App.sc.nextLine());
-        System.out.print("Hora Entrada PM: ");
-            empleado.setHoraPmEntradaFijo(App.sc.nextLine());
-        System.out.print("Hora Salida PM: ");
-            empleado.setHoraPmSalidaFijo(App.sc.nextLine());
-        // scanner.close();
-        return empleado;
-    }
-
-    public void modificarEmpleado(Empleado empleado){
-        System.out.println("Informacion Actual");
-        System.out.println("Elija de que empleado quiere modificar la informacion");
-    }
-
-    public void eliminarEmpleado(){
-
-    }
+    
 
     public void verRegistroAsistencias(){
         
@@ -87,7 +62,12 @@ public class Admin extends Usuario {
     // CRUD para Cargo desde el admin
     public boolean anadirCargo() throws Exception{
         CargoBL cargoBL = new CargoBL();
-        // Scanner scanner = new Scanner(System.in);
+        EmpleadoHorarioBL empleadoHorarioBL = new EmpleadoHorarioBL();
+        System.out.println("Cargos existentes");
+        System.out.println("Nombres:");
+        for (CargoDTO s : cargoBL.getAll()) {
+            System.out.println("\t" + s.getNombre());        
+        }
         System.out.println("Escriba la informacion del nuevo cargo");
         System.out.print("Nombre: ");
             String nombre = scanner.nextLine();
@@ -98,13 +78,19 @@ public class Admin extends Usuario {
         }
         System.out.print("Jefe del nuevo cargo(seleccione el Id): ");
             int idCargoPadre = scanner.nextInt();
-        // scanner.close();
-        return cargoBL.add(nombre, idCargoPadre);
+        System.out.println("Horarios Existentes");
+        System.out.println("IdHorarios\t|Horario");
+        for (EmpleadoHorarioDTO s : empleadoHorarioBL.getAll()) {
+            System.out.println(s.toString());        
+        }
+        System.out.print("Elija un horario(seleccione el Id): ");
+            int idEmpleadoHorario = scanner.nextInt();
+        return cargoBL.add(nombre, idCargoPadre, idEmpleadoHorario);
     }
 
     public boolean modificarCargo() throws Exception{
         CargoBL cargoBL = new CargoBL();
-        // Scanner scanner = new Scanner(System.in);
+        EmpleadoHorarioBL empleadoHorarioBL = new EmpleadoHorarioBL();
         System.out.println("Cargos existentes");
         System.out.println("IdCargo\t|Nombre");
         for (CargoDTO s : cargoBL.getAll()) {
@@ -116,8 +102,14 @@ public class Admin extends Usuario {
             int idCargoPadre = scanner.nextInt();
         System.out.print("Nuevo Nombre: ");
             String nombre = scanner.next();
-        // scanner.close();
-        return cargoBL.update(idCargo, nombre, idCargoPadre);
+        System.out.println("Horarios Existentes");
+        System.out.println("IdHorarios\t|Horario");
+        for (EmpleadoHorarioDTO s : empleadoHorarioBL.getAll()) {
+            System.out.println(s.toString());        
+        }
+        System.out.print("Elija el nuevo horario(seleccione el Id): ");
+            int idEmpleadoHorario = scanner.nextInt();
+        return cargoBL.update(idCargo, nombre, idCargoPadre, idEmpleadoHorario);
     }
 
     public boolean borrarCargo() throws Exception{
@@ -217,19 +209,9 @@ public class Admin extends Usuario {
             String cedula = scanner.nextLine();
         System.out.print("Cargo: ");
             int cargo = scanner.nextInt();
-        System.out.print("Hora Entrada AM: ");
-            String horaAmEntrada = scanner.next();
-        System.out.print("Hora Salida AM: ");
-            String horaAmSalida = scanner.next();
-        System.out.print("Hora Entrada PM: ");
-            String horaPmEntrada = scanner.next();
-        System.out.print("Hora Salida PM: ");
-            String horaPmSalida = scanner.next();
-        System.out.print("Huella Digital: ");
         LectorHuellaDigital lhd = new LectorHuellaDigital();
             String huellaDigital = lhd.enviarHuella();
-        return empleadoBL.add(nombre, apellido, cargo, horaAmEntrada, horaAmSalida, horaPmEntrada, 
-                              horaPmSalida, cedula, huellaDigital);
+        return empleadoBL.add(nombre, apellido, cargo, cedula, huellaDigital);
     }
 
     public boolean modificarEmpleado() throws Exception{
@@ -237,7 +219,7 @@ public class Admin extends Usuario {
         System.out.println("Lista de empleados:");
         System.out.println("IdEmpleado  | Nombre");
         for (EmpleadoDTO s : empleadoBL.getAll()) {
-            if(s.getEstado().equals("X"))
+            if(s.getEstado().equals("A"))
                 System.out.println(s.getIdEmpleado() + " \t\t| " + s.getNombre() + " " + s.getApellido());
         }
         System.out.print("Empleado a modificar(seleccione el Id): ");
@@ -246,48 +228,39 @@ public class Admin extends Usuario {
             System.out.println(empleadoBL.getBy(idEmpleado));
         System.out.println("Ingresar la nueva informacion del empleado");
         System.out.print("Nombre: ");
-            String nombre = scanner.nextLine();
+            String nombre = scanner.next();
         System.out.print("Apellido: ");
-            String apellido = scanner.nextLine();
+            String apellido = scanner.next();
         System.out.print("Cargo: ");
             int cargo = scanner.nextInt();
-        System.out.print("Hora Entrada AM: ");
-            String horaAmEntrada = scanner.next();
-        System.out.print("Hora Salida AM: ");
-            String horaAmSalida = scanner.next();
-        System.out.print("Hora Entrada PM: ");
-            String horaPmEntrada = scanner.next();
-        System.out.print("Hora Salida PM: ");
-            String horaPmSalida = scanner.next();
-        return empleadoBL.update(nombre, apellido, cargo, horaAmEntrada, horaAmSalida, horaPmEntrada, horaPmSalida);
+        return empleadoBL.update(nombre, apellido, cargo, idEmpleado);
     }
 
-    // public boolean borrarEmpleado() throws Exception{
-    //     EmpleadoBL empleadoBL = new EmpleadoBL();
-    //     // // Scanner scanner = new Scanner(System.in);
-    //     System.out.println("Estatus existentes");
-    //     System.out.println("IdEstatus  | Nombre");
-    //     for (EmpleadoDTO s : empleadoBL.getAll()) {
-    //         if(s.getEstado().equals("A"))
-    //             System.out.println(s.getIdEstatus() + " \t| " + s.getNombre());
-    //     }
-    //     System.out.print("Estatus a eliminar(seleccione el Id): ");
-    //         int idEstatus = scanner.nextInt();
-    //     // // scanner.close();
-    //     return empleadoBL.delete(idEstatus);
-    // }
+    public boolean borrarEmpleado() throws Exception{
+        EmpleadoBL empleadoBL = new EmpleadoBL();
+        System.out.println("Empleados existentes");
+        System.out.println("IdEstatus  | Nombre     | Apellido      | Cedula");
+        for (EmpleadoDTO s : empleadoBL.getAll()) {
+            if(s.getEstado().equals("A"))
+                System.out.println(s.getIdEmpleado() + " \t| " + s.getNombre() + " \t| " 
+                                 + s.getApellido() + " \t| " + s.getCedula());
+        }
+        System.out.print("Empleado a eliminar(seleccione el Id): ");
+            int idEstatus = scanner.nextInt();
+        return empleadoBL.delete(idEstatus);
+    }
 
-    // public boolean recuperarEmpleado() throws Exception{
-    //     EmpleadoBL empleadoBL = new EmpleadoBL();
-    //     // // Scanner scanner = new Scanner(System.in);
-    //     System.out.println("Estatus inactivos");
-    //     System.out.println("IdEstatus  | Nombre");
-    //     for (EmpleadoDTO s : empleadoBL.getAll()) {
-    //         if(s.getEstado().equals("X"))
-    //             System.out.println(s.getIdEstatus() + " \t| " + s.getNombre());        
-    //     }
-    //     System.out.print("Estatus a recuperar(seleccione el Id): ");
-    //         int idEstatus = scanner.nextInt();
-    //         return empleadoBL.restore(idEstatus);
-    // }
+    public boolean recuperarEmpleado() throws Exception{
+        EmpleadoBL empleadoBL = new EmpleadoBL();
+        System.out.println("Empleados existentes");
+        System.out.println("IdEmpleado  | Nombre     | Apellido      | Cedula");
+        for (EmpleadoDTO s : empleadoBL.getAll()) {
+            if(s.getEstado().equals("X"))
+                System.out.println(s.getIdEmpleado() + " \t| " + s.getNombre() + " \t| " 
+                                 + s.getApellido() + " \t| " + s.getCedula());
+        }
+        System.out.print("Empleado a eliminar(seleccione el Id): ");
+            int idEstatus = scanner.nextInt();
+        return empleadoBL.restore(idEstatus);
+    }
 }

@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS DiaTrabajo;
 
 CREATE TABLE DiaTrabajo(
     IdDiaTrabajo        INTEGER     NOT NULL PRIMARY KEY AUTOINCREMENT
-    ,Nombre            TEXT        NOT NULL
+    ,Nombre             TEXT        NOT NULL
     ,Estado             VARCHAR(1)  NOT NULL DEFAULT('A')     
     ,FechaCrea          DATETIME    NOT NULL DEFAULT(datetime('now', 'localtime'))
     ,FechaModifica      DATETIME

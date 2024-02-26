@@ -29,31 +29,22 @@ public class EmpleadoBL {
         return empleadoDTO;
     }
 
-    public boolean add(String nombre,String apellido, int idCargo, String horaAmEntrada, String horaAmSalida, 
-                       String horaPmEntrada, String horaPmSalida, String cedula, String HuellaDigital) throws Exception{
+    public boolean add(String nombre,String apellido, int idCargo, String cedula, String HuellaDigital) throws Exception{
         empleadoDTO = new EmpleadoDTO();
         empleadoDTO.setNombre(nombre);
         empleadoDTO.setApellido(apellido);
         empleadoDTO.setCedula(cedula);
         empleadoDTO.setHuellaDigital(HuellaDigital);
         empleadoDTO.setIdCargo(idCargo);
-        empleadoDTO.setHoraAmEntrada(horaAmEntrada);
-        empleadoDTO.setHoraAmSalida(horaAmSalida);
-        empleadoDTO.setHoraPmEntrada(horaPmEntrada);
-        empleadoDTO.setHoraPmSalida(horaPmSalida);
         return empleadoDAO.create(empleadoDTO);
     }
 
-    public boolean update(String nombre,String apellido, int idCargo, String horaAmEntrada, String horaAmSalida, 
-    String horaPmEntrada, String horaPmSalida) throws Exception{
+    public boolean update(String nombre,String apellido, int idCargo, int idEmpleado) throws Exception{
         empleadoDTO = new EmpleadoDTO();
         empleadoDTO.setNombre(nombre);
         empleadoDTO.setApellido(apellido);
-        empleadoDTO.setHoraAmEntrada(horaAmEntrada);
-        empleadoDTO.setHoraAmSalida(horaAmSalida);
-        empleadoDTO.setHoraPmEntrada(horaPmEntrada);
-        empleadoDTO.setHoraPmSalida(horaPmSalida);
         empleadoDTO.setIdCargo(idCargo);
+        empleadoDTO.setIdEmpleado(idEmpleado);
         return empleadoDAO.update(empleadoDTO);
     }
 

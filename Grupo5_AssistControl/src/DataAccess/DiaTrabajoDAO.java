@@ -139,7 +139,7 @@ public boolean delete(Integer id) throws Exception {
 
 @Override
 public boolean restore(Integer id) throws Exception {
-    String  query = "UPDATE Cargo SET Estado = ? WHERE IdDiaTrabajo = ?";
+    String  query = "UPDATE DiaTrabajo SET Estado = ? WHERE IdDiaTrabajo = ?";
     try {
         Connection conn = openConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);

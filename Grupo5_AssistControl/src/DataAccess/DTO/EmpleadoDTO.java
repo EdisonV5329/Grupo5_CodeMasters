@@ -16,10 +16,6 @@ public class EmpleadoDTO {
     private String Apellido;
     private String Cedula;
     private String HuellaDigital;
-    private String HoraAmEntrada;
-    private String HoraAmSalida;
-    private String HoraPmEntrada;
-    private String HoraPmSalida;
     private String Estado;
     private String FechaCrea;
     private String FechaModifica;
@@ -27,18 +23,13 @@ public class EmpleadoDTO {
     public EmpleadoDTO(){}
     
     public EmpleadoDTO(int idEmpleado, int idCargo, String nombre, String apellido, String cedula,
-     String huellaDigital,String horaAmEntrada, String horaAmSalida, String horaPmEntrada,
-     String horaPmSalida, String estado, String fechaCrea, String fechaModifica) {
+     String huellaDigital, String estado, String fechaCrea, String fechaModifica) {
         this.IdEmpleado = idEmpleado;
         this.IdCargo = idCargo;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Cedula = cedula;
         this.HuellaDigital = huellaDigital;
-        this.HoraAmEntrada = horaAmEntrada;
-        this.HoraAmSalida = horaAmSalida;
-        this.HoraPmEntrada = horaPmEntrada;
-        this.HoraPmSalida = horaPmSalida;
         this.Estado = estado;
         this.FechaCrea = fechaCrea;
         this.FechaModifica = fechaModifica;
@@ -81,30 +72,6 @@ public class EmpleadoDTO {
     public void setHuellaDigital(String huellaDigital) {
         HuellaDigital = huellaDigital;
     }
-    public String getHoraAmEntrada() {
-        return HoraAmEntrada;
-    }
-    public void setHoraAmEntrada(String horaAmEntrada) {
-        HoraAmEntrada = horaAmEntrada;
-    }
-    public String getHoraAmSalida() {
-        return HoraAmSalida;
-    }
-    public void setHoraAmSalida(String horaAmSalida) {
-        HoraAmSalida = horaAmSalida;
-    }
-    public String getHoraPmEntrada() {
-        return HoraPmEntrada;
-    }
-    public void setHoraPmEntrada(String horaPmEntrada) {
-        HoraPmEntrada = horaPmEntrada;
-    }
-    public String getHoraPmSalida() {
-        return HoraPmSalida;
-    }
-    public void setHoraPmSalida(String horaPmSalida) {
-        HoraPmSalida = horaPmSalida;
-    }
     public String getEstado() {
         return Estado;
     }
@@ -133,10 +100,6 @@ public class EmpleadoDTO {
         + "\n Apellido:        " + getApellido()
         + "\n Cedula:          " + getCedula()
         + "\n HuellaDigital:   " + getHuellaDigital()
-        + "\n HoraAmEntrada:   " + getHoraAmEntrada()
-        + "\n HoraAmSalida:    " + getHoraAmSalida()
-        + "\n HoraPmEntrada:   " + getHoraPmEntrada()
-        + "\n HoraPmSalida:    " + getHoraPmSalida()
         + "\n Estado:          " + getEstado()
         + "\n FechaCrea:       " + getFechaCrea()
         + "\n FechaModifica:   " + getFechaModifica();

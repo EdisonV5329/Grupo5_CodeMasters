@@ -24,27 +24,23 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
 
     @Override
     public boolean create(EmpleadoDTO entity) throws Exception {
-        String query   = "INSERT INTO Empleado (IdCargo, Nombre, Apellido, HoraAmEntrada"
-                         + ", HoraAmSalida, HoraPmEntrada, HoraPmSalida, HuellaDigital, Cedula)"
-                         + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String query   = "INSERT INTO Empleado (IdCargo, Nombre, Apellido"
+                         + ",HuellaDigital, Cedula)"
+                         + "VALUES (?, ?, ?, ?, ?);";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setInt(1,entity.getIdCargo());
             pstmt.setString(2,entity.getNombre());
             pstmt.setString(3,entity.getApellido());
-            pstmt.setString(4,entity.getHoraAmEntrada());
-            pstmt.setString(5,entity.getHoraAmSalida());
-            pstmt.setString(6,entity.getHoraPmEntrada());
-            pstmt.setString(7,entity.getHoraPmSalida());
-            pstmt.setString(8,entity.getHuellaDigital());
-            pstmt.setString(9,entity.getCedula());
+            pstmt.setString(4,entity.getHuellaDigital());
+            pstmt.setString(5,entity.getCedula());
             pstmt.executeUpdate();
             return true;
         }
         catch (SQLException e){ 
                 throw e;// throw new Exception("Error al insertar el sexo en la base de datos");
-            }
+        }
     }
 
     @Override
@@ -56,10 +52,6 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
                         + " ,Apellido        "
                         + " ,Cedula          "
                         + " ,HuellaDigital   "
-                        + " ,HoraAmEntrada   "
-                        + " ,HoraAmSalida    "
-                        + " ,HoraPmEntrada   "
-                        + " ,HoraPmSalida    "
                         + " ,Estado          "
                         + " ,FechaCrea       "
                         + " ,FechaModifica   "
@@ -77,13 +69,9 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
                                                 ,rs.getString(5)
                                                 ,rs.getString(6)
                                                 ,rs.getString(7)
-                                                ,rs.getString(8)                                        
-                                                ,rs.getString(9)
-                                                ,rs.getString(10)
-                                                ,rs.getString(11)
-                                                ,rs.getString(12)
-                                                ,rs.getString(13));
-                    lst.add(s);
+                                                ,rs.getString(8)
+                                                ,rs.getString(9));
+                lst.add(s);
             }
         } 
         catch(SQLException e){
@@ -101,10 +89,6 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
                         + " ,Apellido        "
                         + " ,Cedula          "
                         + " ,HuellaDigital   "
-                        + " ,HoraAmEntrada   "
-                        + " ,HoraAmSalida    "
-                        + " ,HoraPmEntrada   "
-                        + " ,HoraPmSalida    "
                         + " ,Estado          "
                         + " ,FechaCrea       "
                         + " ,FechaModifica   "
@@ -123,12 +107,8 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
                                      ,rs.getString(5)
                                      ,rs.getString(6)
                                      ,rs.getString(7)
-                                     ,rs.getString(8)                                        
-                                     ,rs.getString(9)
-                                     ,rs.getString(10)
-                                     ,rs.getString(11)
-                                     ,rs.getString(12)
-                                     ,rs.getString(13));            
+                                     ,rs.getString(8)
+                                     ,rs.getString(9));            
             }
         } 
         catch(SQLException e){
@@ -141,8 +121,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
     public boolean update(EmpleadoDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        String query = "UPDATE Empleado SET Nombre = ?, Apellido = ?, IdCargo = ?, HoraAmEntrada = ?"
-                       + ", HoraAmSalida = ?, HoraPmEntrada = ?, HoraPmSalida = ?, FechaModifica = ?"
+        String query = "UPDATE Empleado SET Nombre = ?, Apellido = ?, IdCargo = ?, FechaModifica = ?"
                        + "WHERE IdEmpleado = ?";
         try {
             Connection conn = openConnection();
@@ -150,12 +129,8 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             pstmt.setString(1, entity.getNombre());
             pstmt.setString(2, entity.getApellido());
             pstmt.setInt(3, entity.getIdCargo());
-            pstmt.setString(4, entity.getHoraAmEntrada());
-            pstmt.setString(5, entity.getHoraAmSalida());
-            pstmt.setString(6, entity.getHoraPmEntrada());
-            pstmt.setString(7, entity.getHoraPmSalida());
-            pstmt.setString(8, dtf.format(now).toString());
-            pstmt.setInt(9, entity.getIdEmpleado());
+            pstmt.setString(4, dtf.format(now).toString());
+            pstmt.setInt(5, entity.getIdEmpleado());
             pstmt.executeUpdate();
             return true;
         }

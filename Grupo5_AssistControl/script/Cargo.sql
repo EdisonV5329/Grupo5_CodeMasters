@@ -12,20 +12,23 @@ DROP TABLE IF EXISTS Cargo;
 
 CREATE TABLE  Cargo(
     IdCargo             INTEGER     NOT NULL PRIMARY KEY AUTOINCREMENT
-    ,IdCargoPadre       INTEGER     REFERENCES  Cargo (IdCargo)
+    ,IdCargoPadre       INTEGER     REFERENCES  Cargo(IdCargo)
+    ,IdEmpleadoHorario  INTEGER     NOT NULL REFERENCES EmpleadoHorario (IdEmpleadoHorario)
     ,Nombre             TEXT        NOT NULL UNIQUE 
     ,Estado             VARCHAR(1)  NOT NULL DEFAULT('A') 
     ,FechaCrea          DATETIME    NOT NULL DEFAULT(datetime('now', 'localtime'))
     ,FechaModifica      DATETIME
 );
 
-INSERT INTO Cargo(Nombre) VALUES 
-  ("Admin");
+INSERT INTO Cargo(Nombre, IdEmpleadoHorario) VALUES 
+  ("Admin", '1');
 
 INSERT INTO Cargo(
     IdCargoPadre
+    ,IdEmpleadoHorario
     ,Nombre
 ) VALUES(
     '1'
+    ,'2'
     ,'Limpieza'
 );

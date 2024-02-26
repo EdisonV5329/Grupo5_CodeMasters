@@ -24,8 +24,21 @@ CREATE TABLE RegistroHorario(
     ,FechaModifica          DATETIME             
 );
 
-INSERT INTO RegistroHorario (IdEmpleado, IdEstatus, HoraAmEntrada, HoraAmSalida, HoraPmEntrada, HoraPmSalida) VALUES
-(1, 2, "7:30", "12:00", "14:00", "17:00");
+-- INSERT INTO RegistroHorario (
+--     IdEmpleado
+--     ,IdEstatus
+--     ,HoraAmEntrada
+--     ,HoraAmSalida
+--     ,HoraPmEntrada
+--     ,HoraPmSalida
+-- ) VALUES (
+--     '1'
+--     ,'2'
+--     ,"07:30:00"
+--     ,"12:00:00"
+--     ,"14:00:00"
+--     ,"17:00:00"
+-- );
 
 
 SELECT   IdRegistroHorario
