@@ -78,4 +78,14 @@ public class CitaDTO {
         + "\nFechaModifica: " + getFechaModifica();   
     }
 
+    public void setNombre(String nombre) {
+    
+        throw new UnsupportedOperationException("Unimplemented method 'setNombre'");
+    }
+
+    public void setidCita(int idCita2) {
+    
+        throw new UnsupportedOperationException("Unimplemented method 'setidCita'");
+    }
+
 }

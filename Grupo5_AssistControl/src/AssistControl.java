@@ -41,11 +41,11 @@ public class AssistControl {
         // if(Administrador.modificarEmpleado())
         //     System.out.println("empleado modificado con exito");
         
-        if(Administrador.borrarEmpleado())
-            System.out.println("empleado borrado con exito");
+        // if(Administrador.borrarEmpleado())
+        //     System.out.println("empleado borrado con exito");
         
-        if(Administrador.recuperarEmpleado())
-            System.out.println("empleado recuperado con exito");
+        // if(Administrador.recuperarEmpleado())
+        //     System.out.println("empleado recuperado con exito");
         
         
         
