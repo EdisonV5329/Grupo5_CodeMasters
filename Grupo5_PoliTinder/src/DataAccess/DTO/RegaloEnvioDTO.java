@@ -65,6 +65,10 @@ public class RegaloEnvioDTO {
         FechaModifica = fechaModifica;
     }
 
+    public void setNombre(String nombre) {
+        throw new UnsupportedOperationException("Unimplemented method 'setNombre'");
+    }
+    
     @Override
     public  String toString() {
         return getClass().getName()
@@ -77,4 +81,8 @@ public class RegaloEnvioDTO {
         + "\n FechaModifica:    " + getFechaModifica();
 
     }
+
+   
+
+
 }
