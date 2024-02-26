@@ -21,7 +21,7 @@ public class App {
         // }
         // bl.add("Enfermedad");
 
-
+        
         // RegistroHorarioBL  regHoraBl = new RegistroHorarioBL();
         // System.out.println(regHoraBl.getByIdEmpleado(1));
 
