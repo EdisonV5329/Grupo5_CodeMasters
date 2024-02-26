@@ -1,3 +1,12 @@
+/*
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| mateo.simbana@epn.edu.ec   mateitopro  |
+|----------------------------------------|
+Autor: mateitopro
+Fecha: 26.feb.2k24
+script: Creacion de la clase MenuPanel 
+*/
 package UserInterface.Form;
 
 import java.awt.Dimension;
