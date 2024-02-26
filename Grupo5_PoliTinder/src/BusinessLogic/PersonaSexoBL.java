@@ -18,7 +18,8 @@ import DataAccess.DTO.PersonaSexoDTO;
 
 
 public class PersonaSexoBL {
-     private PersonaSexoDTO personasexo;
+    
+    private PersonaSexoDTO personasexo;
     private PersonaSexoDAO psDAO = new PersonaSexoDAO();
 
     public PersonaSexoBL(){}
