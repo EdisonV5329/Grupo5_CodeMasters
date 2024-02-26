@@ -137,5 +137,22 @@ public class RegaloTipoDAO extends SQLiteDataHelper implements IDAO<RegaloTipoDT
             throw e;
         }
     }
+
+    public Integer getMaxRow()  throws Exception  {
+        String query =" SELECT COUNT(*) TotalRegaloTipo FROM RegaloTipo "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } 
+        catch (SQLException e) {
+            throw e;//new PatException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return 0;
+    }    
     
 }

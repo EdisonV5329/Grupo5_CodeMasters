@@ -14,10 +14,10 @@ public class MainForm extends JFrame{
  
     public MainForm(String tilteApp) {
         customizeComponent(tilteApp);
-        pnlMenu.btnHome.addActionListener(      e -> setPanel(new MainPanel())); 
-        pnlMenu.btnLogin.addActionListener(     e -> setPanel(new LoginPanel())); 
-        pnlMenu.btnSexo.addActionListener(      e -> setPanel(new JPanel()));  
-        pnlMenu.btnLocalidad.addActionListener( e -> setPanel(new MainPanel())); 
+        pnlMenu.btnHome.addActionListener(            e -> setPanel(new MainPanel())); 
+        pnlMenu.btnLogin.addActionListener(          e -> setPanel(new LoginPanel())); 
+        pnlMenu.btnRegaloTipo.addActionListener(e -> setPanel(new RegaloTipoPanel()));  
+        pnlMenu.btnLocalidad.addActionListener(       e -> setPanel(new MainPanel())); 
         //agregar
         pnlMenu.btnTest.addActionListener( e -> { Style.showMsgError("mensaje de error");}); 
     }

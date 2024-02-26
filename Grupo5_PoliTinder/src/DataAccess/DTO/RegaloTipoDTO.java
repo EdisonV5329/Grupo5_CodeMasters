@@ -1,15 +1,19 @@
 package DataAccess.DTO;
 
 public class RegaloTipoDTO {
-    private int    IdRegaloTipo;
-    private String Nombre;
-    private String Estado;
-    private String FechaCrea;
-    private String FechaModifica;
+    private Integer IdRegaloTipo;
+    private String  Nombre;
+    private String  Estado;
+    private String  FechaCrea;
+    private String  FechaModifica;
     
     public RegaloTipoDTO(){}
+
+    public RegaloTipoDTO(String nombre) {
+        Nombre = nombre;
+    }
     
-    public RegaloTipoDTO(int idRegaloTipo, String nombre, String estado, String fechaCrea, String fechaModifica) {
+    public RegaloTipoDTO(Integer idRegaloTipo, String nombre, String estado, String fechaCrea, String fechaModifica) {
         this.IdRegaloTipo = idRegaloTipo;
         this.Nombre = nombre;
         this.Estado = estado;
@@ -17,10 +21,10 @@ public class RegaloTipoDTO {
         this.FechaModifica = fechaModifica;
     }
 
-    public int getIdRegaloTipo() {
+    public Integer getIdRegaloTipo() {
         return IdRegaloTipo;
     }
-    public void setIdRegaloTipo(int idRegaloTipo) {
+    public void setIdRegaloTipo(Integer idRegaloTipo) {
         IdRegaloTipo = idRegaloTipo;
     }
     public String getNombre() {

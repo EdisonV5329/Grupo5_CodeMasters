@@ -15,11 +15,11 @@ import UserInterface.CustomeControls.*;
 
 public class MenuPanel extends JPanel{
     public  Button   
-            btnHome     = new Button("Home"),
-            btnLogin    = new Button("Login"),
-            btnSexo     = new Button("Sexo"),
-            btnLocalidad= new Button("Localidad"),
-            btnTest     = new Button("btnTest");
+            btnHome         = new Button("Home"),
+            btnLogin        = new Button("Login"),
+            btnRegaloTipo   = new Button("RegaloTipo"),
+            btnLocalidad    = new Button("Localidad"),
+            btnTest         = new Button("btnTest");
 
     public MenuPanel(){
         customizeComponent();
@@ -41,7 +41,7 @@ public class MenuPanel extends JPanel{
         // add-botones
         add(btnHome);
         add(btnLogin);
-        add(btnSexo);
+        add(btnRegaloTipo);
         add(btnLocalidad);
         add(btnTest);
 
