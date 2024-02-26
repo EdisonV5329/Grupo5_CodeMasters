@@ -10,13 +10,17 @@ src: Creacion de la clase Admin
 import java.util.Scanner;
 
 import BusinessLogic.CargoBL;
+import BusinessLogic.DiaTrabajoBL;
 import BusinessLogic.EmpleadoBL;
 import BusinessLogic.EmpleadoHorarioBL;
 import BusinessLogic.EstatusBL;
+import BusinessLogic.HoraBL;
 import DataAccess.DTO.CargoDTO;
+import DataAccess.DTO.DiaTrabajoDTO;
 import DataAccess.DTO.EmpleadoDTO;
 import DataAccess.DTO.EmpleadoHorarioDTO;
 import DataAccess.DTO.EstatusDTO;
+import DataAccess.DTO.HoraDTO;
 
 public class Admin extends Usuario {
     private static String usuario;
@@ -263,4 +267,67 @@ public class Admin extends Usuario {
             int idEstatus = scanner.nextInt();
         return empleadoBL.restore(idEstatus);
     }
+
+    // CRUD para DiaTrabajo desde el admin
+    public boolean anadirDiaTrabajo() throws Exception{
+        DiaTrabajoBL diaTrabajoBL = new DiaTrabajoBL();
+        System.out.println("Ingresar nuevos dias de trabajo");
+        System.out.print("Nombre: ");
+            String nombre = scanner.nextLine();
+        return diaTrabajoBL.add(nombre);
+    }
+
+    public boolean modificarDiaTrabajo() throws Exception{
+        DiaTrabajoBL diaTrabajoBL = new DiaTrabajoBL();
+        System.out.println("Lista de dias de trabajo existentes:");
+        System.out.println("IdDiasTrabajo  | Nombre");
+        for (DiaTrabajoDTO s : diaTrabajoBL.getAll()) {
+            if(s.getEstado().equals("A"))
+                System.out.println(s.getIdDiaTrabajo() + " \t\t| " + s.getNombre());
+        }
+        System.out.print("Dia de trabajo a modificar(seleccione el Id): ");
+            int idDiaTrabajo = scanner.nextInt();
+        System.out.println("Ingresar la nueva informacion del dia de trabajo");
+        System.out.print("Nombre: ");
+            String nombre = scanner.next();
+        return diaTrabajoBL.update(idDiaTrabajo, nombre);
+    }
+    
+    /* 
+    codigo de los 
+    metodos eliminar y recuperar
+    DiaTrabajo
+    */
+    
+    // CRUD para DiaTrabajo desde el admin
+    public boolean anadirHora() throws Exception{
+        HoraBL horaBL = new HoraBL();
+        System.out.println("Lista de horas existentes:");
+        System.out.println("IdDiasTrabajo  | Nombre");
+        for (HoraDTO s : horaBL.getAll()) {
+            if(s.getEstado().equals("A"))
+                System.out.println(s.getIdHora() + " \t\t| " + s.getNombre());
+        }
+        System.out.println("Ingresar nuevas horas");
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+        return horaBL.add(nombre);
+    }
+    
+    public boolean modificarHora() throws Exception{
+        HoraBL horaBL = new HoraBL();
+        System.out.println("Lista de horas existentes:");
+        System.out.println("IdDiasTrabajo  | Nombre");
+        for (HoraDTO s : horaBL.getAll()) {
+            if(s.getEstado().equals("A"))
+                System.out.println(s.getIdHora() + " \t\t| " + s.getNombre());
+        }
+        System.out.print("Dia de trabajo a modificar(seleccione el Id): ");
+            int idDiaTrabajo = scanner.nextInt();
+        System.out.println("Ingresar la nueva informacion de las horas");
+        System.out.print("Nombre: ");
+            String nombre = scanner.next();
+        return horaBL.update(idDiaTrabajo, nombre);
+    }
+    
 }

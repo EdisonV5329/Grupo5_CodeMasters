@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS Hora;
 
 CREATE TABLE Hora(
     IdHora              INTEGER     NOT NULL PRIMARY KEY AUTOINCREMENT
-    ,Nombre             TIME        NOT NULL
+    ,Nombre             TIME        NOT NULL UNIQUE   
     ,Estado             VARCHAR(1)  NOT NULL DEFAULT('A')     
     ,FechaCrea          DATETIME    NOT NULL DEFAULT(datetime('now', 'localtime'))
     ,FechaModifica      DATETIME
