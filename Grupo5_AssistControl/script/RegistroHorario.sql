@@ -6,7 +6,7 @@
 |----------------------------------------|
 Autor: mateitopro
 Fecha: 24.feb.2k24
-script: Creacion de la tabla RegistroHorario
+script: Creacion de la tabla RegistroHorario 
 */
 
 DROP TABLE IF EXISTS RegistroHorario;

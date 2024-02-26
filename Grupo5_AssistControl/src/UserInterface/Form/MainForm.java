@@ -4,13 +4,31 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainForm extends JFrame {
     MenuPanel  pnlMenu = new MenuPanel();
-    MainPanel  pnlMain = new MainPanel();
+    JPanel  pnlMain = new MainPanel();
 
     public MainForm(String tittleApp){
         customizeComponent(tittleApp);
+        pnlMenu.btnHome.addActionListener(      e -> setPanel(new MainPanel())); 
+        pnlMenu.btnLogin.addActionListener(     e -> setPanel(new LoginPanel()));
+        pnlMenu.btnEmpleado.addActionListener( e -> setPanel(new EmpleadoPanel())); 
+
+        // pnlMenu.btnSexo.addActionListener(      e -> setPanel(new SexoPanel()));  
+        // pnlMenu.btnLocalidad.addActionListener( e -> setPanel(new MainPanel())); 
+        //agregar
+        // pnlMenu.btnTest.addActionListener( e -> { ACStyle.showMsgError("mensaje de error");})
+    }
+
+    private void setPanel(JPanel formularioPanel) {
+        Container container = getContentPane();
+        container.remove(pnlMain);
+        pnlMain = formularioPanel;
+        container.add(pnlMain, BorderLayout.CENTER);
+        revalidate();
+        repaint();
     }
 
     private void customizeComponent(String tilteApp) {
