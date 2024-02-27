@@ -20,6 +20,7 @@ public class MenuPanel extends JPanel{
             btnRegaloTipo   = new Button("RegaloTipo"),
             btnLocalidad    = new Button("Localidad"),
             btnTest         = new Button("btnTest");
+    public Object btnEmpleado;
 
     public MenuPanel(){
         customizeComponent();

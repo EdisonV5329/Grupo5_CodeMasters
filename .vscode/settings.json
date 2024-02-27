@@ -3,6 +3,9 @@
         "lib/**/*.jar",
         "c:\\Users\\User\\OneDrive - Escuela Politécnica Nacional\\Escritorio\\Programacion II\\Workspace\\Lib\\flatlaf-3.4.jar",
         "c:\\Users\\User\\OneDrive - Escuela Politécnica Nacional\\Escritorio\\Programacion II\\Workspace\\Lib\\flatlaf-intellij-themes-3.4.jar",
-        "c:\\Users\\User\\OneDrive - Escuela Politécnica Nacional\\Escritorio\\Programacion II\\Workspace\\Lib\\sqlite-jdbc-3.40.0.0.jar"
+        "c:\\Users\\User\\OneDrive - Escuela Politécnica Nacional\\Escritorio\\Programacion II\\Workspace\\Lib\\sqlite-jdbc-3.40.0.0.jar",
+        "Grupo5_PoliTinder/lib/flatlaf-3.0.jar",
+        "Grupo5_PoliTinder/lib/flatlaf-intellij-themes-3.0.jar",
+        "Grupo5_PoliTinder/lib/sqlite-jdbc-3.40.0.0.jar"
     ]
 }

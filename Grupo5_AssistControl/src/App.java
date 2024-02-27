@@ -3,9 +3,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
-
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkContrastIJTheme;
 
 import UserInterface.Form.MainForm;
+import UserInterface.Form.SplashScreenForm;
 
 public class App {
     // public static Scanner sc = new Scanner(System.in);
@@ -33,14 +34,14 @@ public class App {
         FlatLightLaf.setup();
         FlatLightLaf.supportsNativeWindowDecorations();
         try {
-            UIManager.setLookAndFeel(new FlatCyanLightIJTheme());
+            UIManager.setLookAndFeel(new FlatArcDarkContrastIJTheme());
             // FlatGradiantoDeepOceanIJTheme()
             // FlatGradiantoMidnightBlueIJTheme()
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         } 
 
-    //    SplashScreenForm.show();
+    SplashScreenForm.show();
        MainForm frmMain = new MainForm("AssistControl");
     }
 }
