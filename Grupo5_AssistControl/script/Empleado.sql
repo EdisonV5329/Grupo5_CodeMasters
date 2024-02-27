@@ -21,3 +21,17 @@ CREATE TABLE Empleado(
     ,FechaCrea       DATETIME       NOT NULL DEFAULT(datetime('now', 'localtime'))
     ,FechaModifica   DATETIME             
 );
+
+INSERT INTO Empleado(
+    IdCargo
+    ,Nombre
+    ,Apellido
+    ,Cedula
+    ,HuellaDigital
+) VALUES(
+    '2'
+    ,'Edison'
+    ,'Vera'
+    ,'2356874102'
+    ,'huella_digital'
+);

@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class SQLiteDataHelper {
-    private static String DBPathConnection = "jdbc:sqlite:database\\ASSIST_CONTROL.sqlite";
+    private static String DBPathConnection = "jdbc:sqlite:database//ASSIST_CONTROL.sqlite"; // no tocar es direccion
     private static Connection conn = null;
     
     protected SQLiteDataHelper(){}

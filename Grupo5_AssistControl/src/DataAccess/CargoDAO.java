@@ -158,4 +158,20 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             throw e;
         }
     }
+    
+    public Integer getMaxRow() throws Exception{
+        String query = "SELECT COUNT(*) TotalReg FROM Cargo WHERE Estado ='A'";
+        try {
+            Connection conn = openConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+          while (rs.next()) {
+                return rs.getInt(1);
+          }
+        }
+        catch(SQLException e){
+            throw e;
+    }
+    return 0;
+    }
 }

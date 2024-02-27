@@ -170,4 +170,21 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             throw e;
         }
     }    
+
+    public Integer getMaxIdEmpleado() throws Exception {
+        String query =" SELECT COUNT(*) TotalEmpleado FROM Empleado "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } catch (SQLException e) {
+            throw e;
+            // throw new e Exception(e.getMessage(), getClass().getName(), "getCountOfEstadoA()");
+        }
+        return 0;
+    }
 }

@@ -1,20 +1,25 @@
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import java.util.Scanner;
 
-import BusinessLogic.EstatusBL;
-import BusinessLogic.RegistroHorarioBL;
-import DataAccess.DTO.EstatusDTO;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkContrastIJTheme;
+
+import BusinessLogic.CargoBL;
+import BusinessLogic.EmpleadoBL;
+import DataAccess.DTO.EmpleadoDTO;
 import UserInterface.Form.MainForm;
 import UserInterface.Form.SplashScreenForm;
 
 public class App {
-    public static Scanner sc = new Scanner(System.in);
+    // public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
-        System.out.println(AssistControl.getNombre());
-        AssistControl1.iniciarPrograma();
+        
+        // AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
+        // System.out.println(AssistControl.getNombre());
+        // AssistControl1.iniciarPrograma();
         // EstatusBL bl = new EstatusBL();
         // System.out.println(bl.getBy(4));
 
@@ -31,7 +36,22 @@ public class App {
         // LocalDateTime now = LocalDateTime.now();
         // System.out.println(now.getDayOfWeek());
 
-       SplashScreenForm.show();
+        FlatLightLaf.setup();
+        FlatLightLaf.supportsNativeWindowDecorations();
+        try {
+            UIManager.setLookAndFeel(new FlatArcDarkContrastIJTheme());
+            // FlatGradiantoDeepOceanIJTheme()
+            // FlatGradiantoMidnightBlueIJTheme()
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        } 
+
+    SplashScreenForm.show();
        MainForm frmMain = new MainForm("AssistControl");
+        AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
+        System.out.println(AssistControl.getNombre());
+        AssistControl1.iniciarPrograma();
+    
+        
     }
 }

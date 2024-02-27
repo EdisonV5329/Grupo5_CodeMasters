@@ -10,19 +10,27 @@ scr: Creacion de la clase EmpleadoDTO
 package DataAccess.DTO;
 
 public class EmpleadoDTO {
-    private int    IdEmpleado;
-    private int    IdCargo;
-    private String Nombre;
-    private String Apellido;
-    private String Cedula;
-    private String HuellaDigital;
-    private String Estado;
-    private String FechaCrea;
-    private String FechaModifica;
+    private Integer IdEmpleado;
+    private Integer IdCargo;
+    private String  Nombre;
+    private String  Apellido;
+    private String  Cedula;
+    private String  HuellaDigital;
+    private String  Estado;
+    private String  FechaCrea;
+    private String  FechaModifica;
     
     public EmpleadoDTO(){}
     
-    public EmpleadoDTO(int idEmpleado, int idCargo, String nombre, String apellido, String cedula,
+    public EmpleadoDTO(Integer idCargo, String nombre, String apellido, String cedula, String huellaDigital) {
+        IdCargo = idCargo;
+        Nombre = nombre;
+        Apellido = apellido;
+        Cedula = cedula;
+        HuellaDigital = huellaDigital;
+    }
+    
+    public EmpleadoDTO(Integer idEmpleado, Integer idCargo, String nombre, String apellido, String cedula,
      String huellaDigital, String estado, String fechaCrea, String fechaModifica) {
         this.IdEmpleado = idEmpleado;
         this.IdCargo = idCargo;
@@ -35,16 +43,16 @@ public class EmpleadoDTO {
         this.FechaModifica = fechaModifica;
     }
     
-    public int getIdEmpleado() {
+    public Integer getIdEmpleado() {
         return IdEmpleado;
     }
-    public void setIdEmpleado(int idEmpleado) {
+    public void setIdEmpleado(Integer idEmpleado) {
         IdEmpleado = idEmpleado;
     }
-    public int getIdCargo() {
+    public Integer getIdCargo() {
         return IdCargo;
     }
-    public void setIdCargo(int idCargo) {
+    public void setIdCargo(Integer idCargo) {
         IdCargo = idCargo;
     }
     public String getNombre() {
