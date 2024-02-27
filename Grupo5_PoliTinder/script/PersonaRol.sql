@@ -8,7 +8,6 @@ Autor: mateitopro
 Fecha: 19.feb.2k24
 Script: Creacion de la tabla PersonaRol + datos
 */
-
 DROP TABLE IF EXISTS PersonaRol;
 
 CREATE TABLE PersonaRol (
@@ -36,7 +35,3 @@ SELECT * FROM PersonaRol;
 SELECT IdPersonaRol, Nombre
 FROM PersonaRol
 WHERE Estado = 'A' AND IdPersonaRol = 2;
-
-SELECT count(*)
-FROM PersonaRol
-WHERE Estado = 'A';

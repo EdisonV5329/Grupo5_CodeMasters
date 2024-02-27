@@ -19,6 +19,7 @@ public class MenuPanel extends JPanel{
             btnLogin        = new Button("Login"),
             btnSexo         = new Button("Sexo"),
             btnPersonaRol   = new Button("PersonaRol"),
+            btnRegaloTipo   = new Button("RegaloTipo"),
             btnLocalidad    = new Button("Localidad"),
             btnTest         = new Button("btnTest");
 
@@ -44,6 +45,7 @@ public class MenuPanel extends JPanel{
         add(btnLogin);
         add(btnSexo);
         add(btnPersonaRol);
+        add(btnRegaloTipo);
         add(btnLocalidad);
         add(btnTest);
         

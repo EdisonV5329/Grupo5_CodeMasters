@@ -1,5 +1,13 @@
+/*
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| mateo.simbana@epn.edu.ec   mateitopro  |
+|----------------------------------------|
+Autor: mateitopro
+Fecha: 19.feb.2k24
+Script: Creacion de la clase PersonaRolDAO
+*/
 package DataAccess;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,8 +45,8 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
                      + " , Estado             "
                      + " , FechaCrea          "
                      + " , FechaModifica      "
-                     + " FROM PersonaRol      "
-                     + " WHERE Estado = 'A' ";
+                     + " FROM PersonaRol      ";
+                    //  + " WHERE Estado = 'A' ";
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -68,7 +76,8 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
                      + " , FechaCrea          "
                      + " , FechaModifica      "
                      + " FROM PersonaRol      "
-                     + " WHERE Estado = 'A' AND IdPersonaRol = " + id.toString();
+                    //  + " WHERE Estado = 'A'   "
+                     + " WHERE IdPersonaRol = " + id.toString();
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -137,25 +146,20 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
         }
     }
 
-    public int getMaxIdPersonaRol() throws Exception {
-        // String query = "SELECT COUNT(*) AS count FROM SEXO WHERE Estado = 'A'";
-        String query = "SELECT count(*)"
-                        + "FROM PersonaRol"
-                        + "WHERE Estado = 'A'";
+    public Integer getMaxIdPersonaRol() throws Exception {
+        String query =" SELECT COUNT(*) TotalPersonaRol FROM PersonaRol "
+                     +" WHERE   Estado ='A' ";
         try {
-            // Connection conn = openConnection();
-            // PreparedStatement pstmt = conn.prepareStatement(query);
-            Connection conn = openConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("count");
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
             }
-            return 0; // Return 0 if no records found (optional)
         } catch (SQLException e) {
             throw e;
             // throw new e Exception(e.getMessage(), getClass().getName(), "getCountOfEstadoA()");
         }
-            
+        return 0;
     }
 }

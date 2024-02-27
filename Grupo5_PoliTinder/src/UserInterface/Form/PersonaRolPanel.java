@@ -1,3 +1,12 @@
+/*
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| edison.vera02@epn.edu.ec   dsn_vr      |
+|----------------------------------------|
+Autor: dsn_vr
+Fecha: 26.feb.2k24
+Script: Creacion de la clase PersonaRolPanel
+*/
 package UserInterface.Form;
 
 import javax.swing.*;
@@ -19,28 +28,65 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
     private Integer idPersonaRol = 0, idMaxPersonaRol=0;
     private PersonaRolBL personaRolBL = null;
     private PersonaRolDTO personaRolDTO = null;
+    private boolean clicado = false;
+    
+    public boolean isClicado() {
+            return clicado;
+    }
 
     public PersonaRolPanel() {
         try {
             customizeComponent();
             loadRow();
+            // JOptionPane.showMessageDialog(null, "aqui");
             showRow();
-            showTable();
+            showTable(btnVerInactivos.getText());
 
             btnRowIni.addActionListener(this);
             btnRowAnt.addActionListener(this);
             btnRowSig.addActionListener(this);
             btnRowFin.addActionListener(this);
             
-            btnNuevo.addActionListener(     e -> btnNuevoClick());
+            btnNuevo.addActionListener(     e -> {
+                try {
+                    btnNuevoClick();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
             btnGuardar.addActionListener(   e -> btnGuardarClick());
             btnEliminar.addActionListener(  e -> btnEliminarClick());
             btnCancelar.addActionListener(  e -> btnCancelarClick());
+            btnVerInactivos.addActionListener(  e -> {
+                try {
+                    btnVerInactivos();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
+            // btnVerInactivos();
         } catch (Exception e) {
             Style.showMsg(e.getMessage());
         }
     }
 
+    private void btnVerInactivos() throws Exception {
+        btnVerInactivos.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (clicado) {
+                    btnVerInactivos.setText("X");
+                    clicado = false;
+                } else {
+                    btnVerInactivos.setText("A");
+                    clicado = true;
+                }
+            }
+        });
+        showTable(btnVerInactivos.getText());
+    }
+
+
+    
     private void loadRow() throws Exception {
         idPersonaRol      = 1;
         personaRolBL      = new PersonaRolBL();
@@ -48,29 +94,34 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
         idMaxPersonaRol   = personaRolBL.getMaxId();
     }
 
-    private void showRow() {
+    private void showRow() throws Exception {
         boolean personaRolDTONull = (personaRolDTO == null);
-        txtIdpersonaRolDTO.setText((personaRolDTONull) ? " " : personaRolDTO.getIdPersonaRol().toString());
-        txtIdpersonaRolPadre.setText((personaRolDTONull) ? " " : personaRolDTO.getIdPersonaRol_Padre().toString()); // cambios
-        txtNombre.setText((personaRolDTONull) ? " " : personaRolDTO.getNombre());
+        txtIdpersonaRolDTO.setText((personaRolDTONull) ? "" : personaRolDTO.getIdPersonaRol().toString());
+        // personaRolBL      = new PersonaRolBL();
+        txtIdpersonaRolPadre.setText((personaRolDTONull) ? "" : personaRolBL.getBy(personaRolDTO.getIdPersonaRol_Padre()).getNombre()); // cambios
+
+        // txtIdpersonaRolPadre.setText((personaRolDTONull) ? "" : personaRolDTO.getIdPersonaRol_Padre().toString()); // cambios
+        txtNombre.setText((personaRolDTONull) ? "" : personaRolDTO.getNombre());
         lblTotalReg.setText(idPersonaRol.toString() + " de " + idMaxPersonaRol.toString());
     }
 
-    private void btnNuevoClick() {
+    private void btnNuevoClick() throws Exception {
         personaRolDTO = null;
         showRow();
     } 
     
     private void btnGuardarClick() {
         boolean personaRolDTONull = (personaRolDTO == null);
-        // String buttonText = ((JButton) e.getSource()).getText();
         try {
             if (Style.showConfirmYesNo("¿Seguro que desea " + ((personaRolDTONull) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
             
+                String idPerRolPadre = txtIdpersonaRolPadre.getText();
                 if (personaRolDTONull)
-                    personaRolDTO = new PersonaRolDTO(/* txtNombre.getText() */);
-                else
+                    personaRolDTO = new PersonaRolDTO(Integer.parseInt(idPerRolPadre), txtNombre.getText());
+                else{
                     personaRolDTO.setNombre(txtNombre.getText());
+                    personaRolDTO.setIdPersonaRol_Padre(Integer.parseInt(idPerRolPadre));
+                }
     
                 if(!((personaRolDTONull) ? personaRolBL.add(personaRolDTO.getNombre(), 
                     personaRolDTO.getIdPersonaRol_Padre()) : personaRolBL.update(personaRolDTO.getIdPersonaRol(),
@@ -79,7 +130,7 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
     
                 loadRow();
                 showRow();
-                showTable();
+                showTable(btnVerInactivos.getText());
             }
         } catch (Exception e) {
             Style.showMsgError(e.getMessage());
@@ -95,7 +146,7 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
     
                 loadRow();
                 showRow();
-                showTable();
+                showTable(btnVerInactivos.getText());
             }
         } catch (Exception e) {
             Style.showMsgError(e.getMessage());
@@ -126,16 +177,19 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
         } catch (Exception ex) {}
     }
 
-    private void showTable() throws Exception {
-        String[] header = {"Id", "IdPadre", "Nombre", "Estado"}; // cambio
-        Object[][] data = new Object[personaRolBL.getAll().size()][4]; // cambio
+    private void showTable(String activo) throws Exception {
+        String[] header = {"Id", "Jefe", "Nombre"/*,  "Estado" */}; // cambio
+        Object[][] data = new Object[personaRolBL.getAll().size()][3]; // cambio
         int index = 0;
         for (PersonaRolDTO s : personaRolBL.getAll()) {
-            data[index][0] = s.getIdPersonaRol();
-            data[index][1] = s.getIdPersonaRol_Padre(); // cambio
-            data[index][2] = s.getNombre();
-            data[index][3] = s.getEstado();
-            index++;
+            if(s.getEstado().equals(activo)){
+                data[index][0] = s.getIdPersonaRol();
+                // data[index][1] = s.getIdPersonaRol_Padre(); // cambio
+                data[index][1] = personaRolBL.getBy(s.getIdPersonaRol_Padre()).getNombre(); // cambio
+                data[index][2] = s.getNombre();
+                // data[index][3] = s.getEstado();
+                index++;
+            }
         }
 
         JTable table = new JTable(data, header);
@@ -174,9 +228,9 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
  ************************/ 
     private Label 
             lblTitulo   = new Label("personaRolDTO"),
-            lblIdpersonaRolDTO   = new Label(" Codigo:      "),
-            lblIdpersonaRolPadre   = new Label(" Codigo Padre:      "),
-            lblNombre   = new Label("*Nombre: "),
+            lblIdpersonaRolDTO   = new Label(" Codigo:"),
+            lblIdpersonaRolPadre   = new Label(" Codigo Padre:"),
+            lblNombre   = new Label("Nombre:"),
             lblTotalReg = new Label(" 0 de 0 ");
     private TextBox 
             txtIdpersonaRolDTO   = new TextBox(),
@@ -193,10 +247,12 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
             btnRowSig   = new Button(" >> "),
             btnRowFin   = new Button(" >| "),
 
-            btnNuevo    = new Button("Nuevo"),
-            btnGuardar  = new Button("Guardar"),
-            btnCancelar = new Button("Cancelar"),
-            btnEliminar = new Button("Eliminar");
+            btnNuevo        = new Button("Nuevo"),
+            btnGuardar      = new Button("Guardar"),
+            btnCancelar     = new Button("Cancelar"),
+            btnEliminar     = new Button("Eliminar"),
+            btnVerInactivos = new Button("A");
+
     private JPanel 
             pnlTabla    = new JPanel(),
             pnlBtnRow   = new JPanel(new FlowLayout()),
@@ -230,6 +286,7 @@ public class PersonaRolPanel  extends JPanel implements ActionListener {
         pnlBtnCRUD.add(btnGuardar);
         pnlBtnCRUD.add(btnCancelar);
         pnlBtnCRUD.add(btnEliminar);
+        pnlBtnCRUD.add(btnVerInactivos);
         pnlBtnCRUD.setBorder(Style.createBorderRect());
 
         gbc.insets = new Insets(5, 5, 5, 5);
