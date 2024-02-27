@@ -1,11 +1,14 @@
 /*
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
-| mateo.simbana@epn.edu.ec   mateitopro  |
+| mateo.simbana@epn.edu.ec               |
+| matheus.velasco@epn.edu.ec             |
 |----------------------------------------|
-Autor: mateitopro
+|    mateitopro y MATHEUSX               |
+|----------------------------------------|
+Autor: mateitopro y MATHEUSX   
 Fecha: 26.feb.2k24
-script: Creacion de la clase ACStyle
+Clase: Creacion de la clase ACStyle
 */
 package UserInterface;
 
@@ -22,13 +25,20 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public abstract class ACStyle {
-    public static final Color COLOR_FONT = new Color(200, 100, 50); //(218, 8, 40)
-    public static final Color COLOR_FONT_LIGHT = new Color(100, 100, 100);
-    public static final Color COLOR_CURSOR = Color.black;
-    public static final Color COLOR_BORDER = Color.lightGray;
-    public static final Font  FONT         = new Font("JetBrains Mono", Font.PLAIN, 14);
-    public static final Font  FONT_BOLD    = new Font("JetBrains Mono", Font.BOLD | Font.PLAIN, 14);
-    public static final Font  FONT_SMALL   = new Font("JetBrains Mono", Font.PLAIN| Font.PLAIN, 10);
+    public static final Color COLOR_FONT = new Color(0, 108, 255); //(218, 8, 40)
+    public static final Color COLOR_FONT_LIGHT = new Color(0, 181, 109);
+    public static final Color COLOR_CURSOR = new Color(24, 45, 92);
+    public static final Color COLOR_BORDER = new Color(158, 199, 0);
+    public static final Color Color_Background = new Color(0, 0, 0); //Color del fondo
+    public static final Color Color_Highlight = new Color(0, 204, 153); // Color de resaltado
+    public static final Color Color_Hover = new Color(0, 204, 153); // Color de resaltado al pasar el mouse por encima
+    public static final Color Color_Default = new Color(86, 86, 86); // Color por defecto para los campos vacíos
+
+    public static final Font FONT = new Font("Kode Mono", Font.PLAIN, 14); //Fuente del texto
+    public static final Font FONT_BOLD = new Font("Kode Mono", Font.BOLD| Font.PLAIN, 14); //Fuente del texto en negrita 
+    public static final Font FONT_SMALL = new Font("Kode Mono", Font.PLAIN| Font.PLAIN, 14); //Fuente del texto pequeño
+    public static final Font FONT_LARGE = new Font("Kode Mono", Font.PLAIN, 18); // Fuente grande
+    public static final Font FONT_ITALIC = new Font("Kode Mono", Font.ITALIC, 14); // Fuente cursiva
 
     public static final int ALIGNMENT_LEFT  = SwingConstants.LEFT;
     public static final int ALIGNMENT_RIGHT = SwingConstants.RIGHT;
@@ -36,8 +46,10 @@ public abstract class ACStyle {
 
     public static final Cursor CURSOR_HAND    = new Cursor(Cursor.HAND_CURSOR);
     public static final Cursor CURSOR_DEFAULT = new Cursor(Cursor.DEFAULT_CURSOR);
+    public static final Cursor CURSOR_CROSSHAIR= new Cursor(Cursor.CROSSHAIR_CURSOR);
 
-    public static final URL URL_MAIN  = ACStyle.class.getResource("/UserInterface/Resource/Img/IABot.png");
+
+    public static final URL URL_MAIN  = ACStyle.class.getResource("/UserInterface/Resource/Img/human-profile-monochromatic (2) (1).png");
     public static final URL URL_LOGO  = ACStyle.class.getResource("/UserInterface/Resource/Img/Logo.png");
     public static final URL URL_SPLASH= ACStyle.class.getResource("/UserInterface/Resource/Img/Splash.gif");
 

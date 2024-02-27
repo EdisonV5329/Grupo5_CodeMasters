@@ -14,6 +14,7 @@ import java.util.Arrays;
 
 import javax.swing.*;
 
+import UserInterface.CustomerControl.ACButton;
 import UserInterface.CustomerControl.ACLabel;
 import UserInterface.CustomerControl.ACTextBox;
 
@@ -22,7 +23,7 @@ public class LoginPanel extends JPanel {
                            lblPassword;
     private ACTextBox      txtUsername;
     private JPasswordField txpPassword;
-    private JButton        btnLogin;
+    private ACButton        btnLogin;
 
     public LoginPanel() {
         initializeComponents();
@@ -52,7 +53,7 @@ public class LoginPanel extends JPanel {
         // txtUsername = new ACTextBox();
         txtUsername = new ACTextBox();
         txpPassword = new JPasswordField();
-        btnLogin    = new JButton("Login");
+        btnLogin    = new ACButton("Login");
 
         //txtUsername.setBorder(txtUsername.createBorderLine());
         // txtUsername.setBorderLine();

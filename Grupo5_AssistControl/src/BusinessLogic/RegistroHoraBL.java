@@ -11,35 +11,35 @@ package BusinessLogic;
 
 import java.util.List;
 
-import DataAccess.RegistroHorarioDAO;
-import DataAccess.DTO.RegistroHorarioDTO;
+import DataAccess.RegistroHoraDAO;
+import DataAccess.DTO.RegistroHoraDTO;
 
-public class RegistroHorarioBL {
-    private RegistroHorarioDAO rhDAO = new RegistroHorarioDAO();
-    public RegistroHorarioBL() {};
+public class RegistroHoraBL {
+    private RegistroHoraDAO rhDAO = new RegistroHoraDAO();
+    public RegistroHoraBL() {};
     
-    public List<RegistroHorarioDTO> getAll() throws Exception{
+    public List<RegistroHoraDTO> getAll() throws Exception{
         return rhDAO.readAll();
     }
     
-    public List<RegistroHorarioDTO> getAllATiempo() throws Exception{
+    public List<RegistroHoraDTO> getAllATiempo() throws Exception{
         return rhDAO.readAllEstructura("A Tiempo");
     }
     
-    public List<RegistroHorarioDTO> getAllAtrasado() throws Exception{
+    public List<RegistroHoraDTO> getAllAtrasado() throws Exception{
         return rhDAO.readAllEstructura("Atrasado");
     }
-    public List<RegistroHorarioDTO> getAllEnfermedad() throws Exception{
+    public List<RegistroHoraDTO> getAllEnfermedad() throws Exception{
         return rhDAO.readAllEstructura("Enfermedad");
     }
-    public List<RegistroHorarioDTO> getAllVacaciones() throws Exception{
+    public List<RegistroHoraDTO> getAllVacaciones() throws Exception{
         return rhDAO.readAllEstructura("Vacaciones");
     }
-    public List<RegistroHorarioDTO> getAllInasistencia() throws Exception{
+    public List<RegistroHoraDTO> getAllInasistencia() throws Exception{
         return rhDAO.readAllEstructura("Inasistencia");
     }
 
-    public RegistroHorarioDTO getById(int id) throws Exception{
+    public RegistroHoraDTO getById(int id) throws Exception{
         return rhDAO.readBy(id);
     }
    

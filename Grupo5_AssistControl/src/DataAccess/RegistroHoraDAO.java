@@ -16,12 +16,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import DataAccess.DTO.RegistroHorarioDTO;
+import DataAccess.DTO.RegistroHoraDTO;
 
-public class RegistroHorarioDAO extends SQLiteDataHelper{
+public class RegistroHoraDAO extends SQLiteDataHelper{
 
-    public List<RegistroHorarioDTO> readAll() throws Exception{
-        List<RegistroHorarioDTO> lst = new ArrayList<>();
+    public List<RegistroHoraDTO> readAll() throws Exception{
+        List<RegistroHoraDTO> lst = new ArrayList<>();
         String query =  "SELECT rh.IdRegistroHorario IdRegistroHorario"
                         +", em.Nombre          Nombre"
                         +", rh.HoraAmEntrada   HoraAmEntrada"
@@ -41,7 +41,7 @@ public class RegistroHorarioDAO extends SQLiteDataHelper{
             Statement  stmt = conn.createStatement();      
             ResultSet rs   = stmt.executeQuery(query); 
             while (rs.next()) {
-                RegistroHorarioDTO s = new RegistroHorarioDTO(rs.getInt(1)          
+                RegistroHoraDTO s = new RegistroHoraDTO(rs.getInt(1)          
                                                             ,rs.getString(2)                  
                                                             ,rs.getString(3)         
                                                             ,rs.getString(4)         
@@ -58,8 +58,8 @@ public class RegistroHorarioDAO extends SQLiteDataHelper{
         return lst;
     }
 
-    public RegistroHorarioDTO readBy(Integer id) throws Exception{
-        RegistroHorarioDTO rhDTO = new RegistroHorarioDTO();
+    public RegistroHoraDTO readBy(Integer id) throws Exception{
+        RegistroHoraDTO rhDTO = new RegistroHoraDTO();
         String query =  "SELECT rh.IdRegistroHorario IdRegistroHorario"
                         +", em.Nombre          Nombre"
                         +", rh.HoraAmEntrada   HoraAmEntrada"
@@ -80,7 +80,7 @@ public class RegistroHorarioDAO extends SQLiteDataHelper{
             Statement  stmt = conn.createStatement();      
             ResultSet rs   = stmt.executeQuery(query); 
             while (rs.next()) {
-                rhDTO = new RegistroHorarioDTO(rs.getInt(1)          
+                rhDTO = new RegistroHoraDTO(rs.getInt(1)          
                                                             ,rs.getString(2)                  
                                                             ,rs.getString(3)         
                                                             ,rs.getString(4)         
@@ -96,8 +96,8 @@ public class RegistroHorarioDAO extends SQLiteDataHelper{
         return rhDTO;
     }
 
-    public List<RegistroHorarioDTO> readAllEstructura(String estatus) throws Exception {
-        List<RegistroHorarioDTO> lst = new ArrayList<>();
+    public List<RegistroHoraDTO> readAllEstructura(String estatus) throws Exception {
+        List<RegistroHoraDTO> lst = new ArrayList<>();
         String query =  "SELECT rh.IdRegistroHorario IdRegistroHorario"
                         +", em.Nombre          Nombre"
                         +", rh.HoraAmEntrada   HoraAmEntrada"
@@ -127,7 +127,7 @@ public class RegistroHorarioDAO extends SQLiteDataHelper{
             Statement  stmt = conn.createStatement();      
             ResultSet rs   = stmt.executeQuery(query); 
             while (rs.next()) {
-                RegistroHorarioDTO s = new RegistroHorarioDTO(rs.getInt(1)          
+                RegistroHoraDTO s = new RegistroHoraDTO(rs.getInt(1)          
                                                             ,rs.getString(2)                  
                                                             ,rs.getString(3)         
                                                             ,rs.getString(4)         
@@ -148,3 +148,4 @@ public class RegistroHorarioDAO extends SQLiteDataHelper{
     
 
 }
+

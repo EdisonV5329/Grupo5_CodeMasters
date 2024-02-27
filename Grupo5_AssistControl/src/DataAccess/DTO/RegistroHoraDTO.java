@@ -9,7 +9,7 @@ script: Creacion de la clase RegistroHorarioDTO
 */
 package DataAccess.DTO;
 
-public class RegistroHorarioDTO  {
+public class RegistroHoraDTO  {
     
     private Integer IdRegistroHorario;
     private String  Nombre;
@@ -20,8 +20,8 @@ public class RegistroHorarioDTO  {
     private String  Estatus;
     private String  Fecha;  
 
-    public RegistroHorarioDTO() {}
-    public RegistroHorarioDTO(  Integer IdRegistroHorario,
+    public RegistroHoraDTO() {}
+    public RegistroHoraDTO(  Integer IdRegistroHorario,
                                 String  Nombre,
                                 String  HoraAmEntrada,
                                 String  HoraAmSalida,

@@ -4,13 +4,17 @@ import java.util.Scanner;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
-
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkContrastIJTheme;
 
 import UserInterface.Form.MainForm;
+<<<<<<< HEAD
 import BusinessLogic.EstatusBL;
 import DataAccess.RegistroHorarioDAO;
 import DataAccess.DTO.EstatusDTO;
 import DataAccess.DTO.RegistroHorarioDTO;
+=======
+import UserInterface.Form.SplashScreenForm;
+>>>>>>> e1688c2bd9d4deeabd284c25a5fa5a1083a1271f
 
 public class App {
     // public static Scanner sc = new Scanner(System.in);
@@ -38,14 +42,14 @@ public class App {
         FlatLightLaf.setup();
         FlatLightLaf.supportsNativeWindowDecorations();
         try {
-            UIManager.setLookAndFeel(new FlatCyanLightIJTheme());
+            UIManager.setLookAndFeel(new FlatArcDarkContrastIJTheme());
             // FlatGradiantoDeepOceanIJTheme()
             // FlatGradiantoMidnightBlueIJTheme()
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         } 
 
-    //    SplashScreenForm.show();
+    SplashScreenForm.show();
        MainForm frmMain = new MainForm("AssistControl");
         AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
         System.out.println(AssistControl.getNombre());
