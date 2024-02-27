@@ -10,21 +10,21 @@ script: Creacion de la clase EstatusDTO
 package DataAccess.DTO;
 
 public class EstatusDTO {
-    private int    IdEstatus;     
+    private int    idEstatus;     
     private String Nombre;       
     private String Estado;       
     private String FechaCrea;    
     private String FechaModifica;
 
     public EstatusDTO(){}
-    public EstatusDTO(int  IdEstatus,    
+    public EstatusDTO(int  idEstatus,    
                     String Nombre,       
                     String Estado,       
                     String FechaCrea,    
                     String FechaModifica
 
     ){
-        this.IdEstatus     = IdEstatus; 
+        this.idEstatus     = idEstatus; 
         this.Nombre        = Nombre;
         this.Estado        = Estado;
         this.FechaCrea     = FechaCrea; 
@@ -32,10 +32,10 @@ public class EstatusDTO {
     }
 
     public int getIdEstatus() {
-        return IdEstatus;
+        return idEstatus;
     }
     public void setIdEstatus(int idestatus) {
-        IdEstatus = idestatus;
+        idEstatus = idestatus;
     }
     public String getNombre() {
         return Nombre;
@@ -65,7 +65,7 @@ public class EstatusDTO {
     @Override
     public String toString() {
         return getClass().getName()
-        +"\n IdEstatus:         " + getIdEstatus()
+        +"\n idEstatus:         " + getIdEstatus()
         +"\n Nombre:            " + getNombre()
         +"\n Estado:            " + getEstado()
         +"\n FechaCrea:         " + getFechaCrea()
