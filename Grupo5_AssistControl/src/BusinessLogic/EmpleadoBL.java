@@ -34,7 +34,7 @@ public class EmpleadoBL {
         empleadoDTO.setNombre(nombre);
         empleadoDTO.setApellido(apellido);
         empleadoDTO.setCedula(cedula);
-        empleadoDTO.setHuellaDigital(HuellaDigital);
+        empleadoDTO.setCodigoBarras(HuellaDigital);
         empleadoDTO.setIdCargo(idCargo);
         return empleadoDAO.create(empleadoDTO);
     }

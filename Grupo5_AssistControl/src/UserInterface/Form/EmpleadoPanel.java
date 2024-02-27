@@ -28,6 +28,8 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
     private Integer idEmpleado = 0, idMaxEmpleado=0;
     private EmpleadoBL empleadoBL = null;
     private EmpleadoDTO empleadoDTO = null;
+    private CargoBL cargoBL = new CargoBL();
+    
     private boolean clicado = false;
     
     public boolean isClicado() {
@@ -39,7 +41,7 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
             customizeComponent();
             loadRow();
             showRow();
-            JOptionPane.showMessageDialog(null, "aqui");
+            // JOptionPane.showMessageDialog(null, "aqui");
             showTable(btnVerInactivos.getText());
 
             btnRowIni.addActionListener(this);
@@ -54,7 +56,7 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
                     e1.printStackTrace();
                 }
             });
-            // btnGuardar.addActionListener(   e -> btnGuardarClick());
+            btnGuardar.addActionListener(   e -> btnGuardarClick());
             btnEliminar.addActionListener(  e -> btnEliminarClick());
             btnCancelar.addActionListener(  e -> btnCancelarClick());
             btnVerInactivos.addActionListener(  e -> {
@@ -85,8 +87,6 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         showTable(btnVerInactivos.getText());
     }
 
-
-    
     private void loadRow() throws Exception {
         idEmpleado      = 1;
         empleadoBL      = new EmpleadoBL();
@@ -95,14 +95,14 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
     }
 
     private void showRow() throws Exception {
-        CargoBL cargoBL = new CargoBL();
         boolean empleadoDTONull = (empleadoDTO == null);
         txtIdEmpleadoDTO.setText((empleadoDTONull) ? "" : empleadoDTO.getIdEmpleado().toString());
-        // txtIdCargo.setText((empleadoDTONull) ? "" : empleadoDTO.getIdCargo().toString());
-        txtIdCargo.setText((empleadoDTONull) ? "" : cargoBL.getBy(empleadoBL.getBy(empleadoDTO.getIdEmpleado()).getIdCargo()).getNombre()); // cambios
+        txtIdCargo.setText((empleadoDTONull) ? "" : empleadoDTO.getIdCargo().toString());
+        txtIdCargo.setText((empleadoDTONull) ? "" : cargoBL.getBy(empleadoDTO.getIdCargo()).getNombre()); // cambios
         txtNombre.setText((empleadoDTONull) ? "" : empleadoDTO.getNombre());
         txtApellido.setText((empleadoDTONull) ? "" : empleadoDTO.getApellido());
         txtCedula.setText((empleadoDTONull) ? "" : empleadoDTO.getCedula());
+        txtCodigoBarra.setText((empleadoDTONull) ? "" : empleadoDTO.getCodigoBarras());
         lblTotalReg.setText(idEmpleado.toString() + " de " + idMaxEmpleado.toString());
     }
 
@@ -111,35 +111,37 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         showRow();
     } 
     
-    // private void btnGuardarClick() {
-    //     boolean personaRolDTONull = (empleadoDTO == null);
-    //     try {
-    //         if (ACStyle.showConfirmYesNo("¿Seguro que desea " + ((personaRolDTONull) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
+    private void btnGuardarClick() {
+        boolean personaRolDTONull = (empleadoDTO == null);
+        try {
+            if (ACStyle.showConfirmYesNo("¿Seguro que desea " + ((personaRolDTONull) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
             
-    //             String idCargo = txtIdCargo.getText();
-    //             if (personaRolDTONull)
-    //                 empleadoDTO = new EmpleadoDTO(Integer.parseInt(idPerRolPadre), txtNombre.getText());
-    //             else{
-    //                 empleadoDTO.setIdCargo(Integer.parseInt(idCargo));
-    //                 empleadoDTO.setNombre(txtNombre.getText());
-    //                 empleadoDTO.setApellido(txtApellido.getText());
-    //                 empleadoDTO.setCedula(txtCedula.getText());
-    //                 // empleadoDTO.setCodigoBarra(txtCodigoBarra.getText());
-    //             }
+                String idCargo = txtIdCargo.getText();
+                if (personaRolDTONull)
+                    empleadoDTO = new EmpleadoDTO(Integer.parseInt(idCargo), txtNombre.getText(), txtApellido.getText(),
+                                    txtCedula.getText(), txtCodigoBarra.getText());
+                else{
+                    empleadoDTO.setIdCargo(Integer.parseInt(idCargo));
+                    empleadoDTO.setNombre(txtNombre.getText());
+                    empleadoDTO.setApellido(txtApellido.getText());
+                    empleadoDTO.setCedula(txtCedula.getText());
+                    empleadoDTO.setCodigoBarras(txtCodigoBarra.getText());
+                }
     
-    //             if(!((personaRolDTONull) ? empleadoBL.add(empleadoDTO.getNombre(), 
-    //                 empleadoDTO.getIdPersonaRol_Padre()) : empleadoBL.update(empleadoDTO.getIdPersonaRol(),
-    //                  empleadoDTO.getNombre(), empleadoDTO.getIdPersonaRol_Padre())))
-    //                 ACStyle.showMsgError("Error al guardar...!");
+                if(!((personaRolDTONull) ? empleadoBL.add(empleadoDTO.getNombre(), empleadoDTO.getApellido(),
+                    empleadoDTO.getIdCargo(), empleadoDTO.getCedula(), empleadoDTO.getCodigoBarras()) 
+                    : empleadoBL.update(empleadoDTO.getNombre(), empleadoDTO.getApellido(), empleadoDTO.getIdCargo(),
+                      empleadoDTO.getIdEmpleado())))
+                    ACStyle.showMsgError("Error al guardar...!");
     
-    //             loadRow();
-    //             showRow();
-    //             showTable(btnVerInactivos.getText());
-    //         }
-    //     } catch (Exception e) {
-    //         ACStyle.showMsgError(e.getMessage());
-    //     }
-    // }
+                loadRow();
+                showRow();
+                showTable(btnVerInactivos.getText());
+            }
+        } catch (Exception e) {
+            ACStyle.showMsgError(e.getMessage());
+        }
+    }
 
     private void btnEliminarClick() {
         try {
@@ -185,16 +187,13 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         String[] header = {"Id", "Cargo", "Nombre", "Apellido", "Cedula"/*,  "Estado" */}; // cambio
         Object[][] data = new Object[empleadoBL.getAll().size()][5]; // cambio
         int index = 0;
-        CargoBL cargoBL = new CargoBL();
         for (EmpleadoDTO s : empleadoBL.getAll()) {
             if(s.getEstado().equals(activo)){
-                data[index][0] = s.getIdEmpleado();
-                // data[index][1] = s.getIdCargo(); // cambio
-                data[index][1] = cargoBL.getBy(empleadoBL.getBy(empleadoDTO.getIdEmpleado()).getIdCargo()).getNombre(); // cambio
+                data[index][0] = s.getIdEmpleado(); 
+                data[index][1] = cargoBL.getBy(s.getIdCargo()).getNombre(); // cambio
                 data[index][2] = s.getNombre();
                 data[index][3] = s.getApellido();
                 data[index][4] = s.getCedula();
-                // data[index][3] = s.getEstado();
                 index++;
             }
         }
@@ -240,13 +239,15 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
             lblNombre           = new Label("Nombre:"),
             lblApellido         = new Label("Apellido:"),
             lblCedula           = new Label("Cedula:"),
+            lblCodigoBarra      = new Label("Codigo Baras:"),
             lblTotalReg         = new Label(" 0 de 0 ");
     private ACTextBox 
             txtIdEmpleadoDTO     = new ACTextBox(),
             txtIdCargo           = new ACTextBox(), // cambio
             txtNombre            = new ACTextBox(),
             txtApellido          = new ACTextBox(),
-            txtCedula            = new ACTextBox();
+            txtCedula            = new ACTextBox(),
+            txtCodigoBarra       = new ACTextBox();
     private ACButton 
             btnPageIni  = new ACButton(" |< "),
             btnPageAnt  = new ACButton(" << "),
@@ -280,6 +281,7 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         txtNombre.setBorderLine();
         txtApellido.setBorderLine();
         txtCedula.setBorderLine();
+        txtCodigoBarra.setBorderLine();
         
         pnlBtnPage.add(btnPageIni);
         pnlBtnPage.add(btnPageAnt);
@@ -390,6 +392,15 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
         add(txtCedula, gbc);
         
+        gbc.gridy = 10;
+        gbc.gridx = 0;
+        add(lblCodigoBarra, gbc);
+        gbc.gridy = 10;
+        gbc.gridx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
+        add(txtCodigoBarra, gbc);
+        
 
         // gbc.gridy = 7;
         // gbc.gridx = 1;
@@ -397,7 +408,7 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         // gbc.fill = GridBagConstraints.HORIZONTAL;
         // add(pnlBtnRow, gbc);
 
-        gbc.gridy = 10;
+        gbc.gridy = 11;
         gbc.gridx = 0;
         gbc.gridwidth = 3;
         gbc.insets = new Insets(30, 0, 0, 0);

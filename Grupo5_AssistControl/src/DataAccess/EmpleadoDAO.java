@@ -33,7 +33,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             pstmt.setInt(1,entity.getIdCargo());
             pstmt.setString(2,entity.getNombre());
             pstmt.setString(3,entity.getApellido());
-            pstmt.setString(4,entity.getHuellaDigital());
+            pstmt.setString(4,entity.getCodigoBarras());
             pstmt.setString(5,entity.getCedula());
             pstmt.executeUpdate();
             return true;

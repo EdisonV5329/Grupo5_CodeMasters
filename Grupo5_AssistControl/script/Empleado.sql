@@ -29,9 +29,9 @@ INSERT INTO Empleado(
     ,Cedula
     ,HuellaDigital
 ) VALUES(
-    '2'
+    '1'
     ,'Edison'
     ,'Vera'
-    ,'2356874102'
+    ,'2356877402'
     ,'huella_digital'
 );
