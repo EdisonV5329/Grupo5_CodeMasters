@@ -1,11 +1,11 @@
 /*
 |------------------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved.        |
-| nombre.apellido@epn.edu.ec   Nombre Autor      |
+| francisco.torres@epn.edu.ec   Francisco Torres |
 |------------------------------------------------|
-Autor: Nombre Autor
-Fecha: dia.mes.2k24
-script: Especificacion de lo creado
+Autor: Francisco Torres
+Fecha: 24.feb.2k24
+script: Creacion de la clase EstatusDTO
 */
 package DataAccess.DTO;
 

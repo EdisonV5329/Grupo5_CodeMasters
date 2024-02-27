@@ -1,3 +1,12 @@
+/*
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| mateo.simbana@epn.edu.ec   mateitopro  |
+|----------------------------------------|
+Autor: mateitopro
+Fecha: 26.feb.2k24
+script: Creacion de la clase SplashScreenForm
+*/
 package UserInterface.Form;
 
 import java.awt.BorderLayout;
@@ -7,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+import UserInterface.ACStyle;
+
 public abstract class SplashScreenForm {
     private static JFrame       frmSplash;
     private static JProgressBar prbLoaging;
@@ -14,7 +25,7 @@ public abstract class SplashScreenForm {
     private static JLabel       lblSplash ;
 
     public static void show () {
-        icoImagen  = new ImageIcon("src\\UserInterface\\Resource\\Img\\splash.gif");        
+        icoImagen  = new ImageIcon(ACStyle.URL_SPLASH);        
         lblSplash  = new JLabel(icoImagen);
         prbLoaging = new JProgressBar(0, 100);
 

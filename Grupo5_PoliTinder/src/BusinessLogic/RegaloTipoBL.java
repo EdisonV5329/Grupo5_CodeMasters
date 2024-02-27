@@ -30,22 +30,17 @@ public class RegaloTipoBL {
         return rgtipoDAO.readAll();
     }
 
-    public RegaloTipoDTO getBy(int idRegaloTipo) throws Exception{
+    public RegaloTipoDTO getByIdRegaloTipo(int idRegaloTipo) throws Exception{
         regalotipo = rgtipoDAO.readBy(idRegaloTipo);
         return regalotipo;
     }
 
-    public boolean add(String Nombre) throws Exception{
-        regalotipo = new RegaloTipoDTO();
-        regalotipo.setNombre(Nombre);
-        return rgtipoDAO.create(regalotipo);
+    public boolean create(RegaloTipoDTO regaloTipoDTO) throws Exception{
+        return rgtipoDAO.create(regaloTipoDTO);
     }
 
-    public boolean update(int idRegaloTipo, String Nombre) throws Exception{
-        regalotipo = new RegaloTipoDTO();
-        regalotipo.setIdRegaloTipo(idRegaloTipo);
-        regalotipo.setNombre(Nombre);
-        return rgtipoDAO.update(regalotipo);
+    public boolean update(RegaloTipoDTO regaloTipoDTO) throws Exception{
+        return rgtipoDAO.update(regaloTipoDTO);
     }
 
     public boolean delete(int idRegaloTipo) throws Exception {
@@ -53,6 +48,9 @@ public class RegaloTipoBL {
     }
     public boolean restore(int idRegaloTipo) throws Exception {
         return rgtipoDAO.restore(idRegaloTipo);
+    }
+    public Integer getMaxRow() throws Exception{
+        return rgtipoDAO.getMaxRow();
     }
     
 }

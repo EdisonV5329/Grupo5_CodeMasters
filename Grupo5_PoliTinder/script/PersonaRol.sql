@@ -8,7 +8,6 @@ Autor: mateitopro
 Fecha: 19.feb.2k24
 Script: Creacion de la tabla PersonaRol + datos
 */
-
 DROP TABLE IF EXISTS PersonaRol;
 
 CREATE TABLE PersonaRol (

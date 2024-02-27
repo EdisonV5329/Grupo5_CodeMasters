@@ -1,15 +1,11 @@
 package UserInterface.CustomeControls;
 
-import UserInterface.CustomeControls.*;
-
-import java.awt.Font;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
 public class Button  extends JButton implements MouseListener {
