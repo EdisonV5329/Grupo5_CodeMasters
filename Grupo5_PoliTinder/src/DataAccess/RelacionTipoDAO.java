@@ -136,4 +136,21 @@ public class RelacionTipoDAO extends SQLiteDataHelper implements IDAO<RelacionTi
             throw e;
         }
     }
+
+    public Integer getMaxRow()  throws Exception  {
+        String query =" SELECT COUNT(*) TotalRelacionTipo FROM RelacionTipo "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } 
+        catch (SQLException e) {
+            throw e;//new PatException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return 0;
+    }    
 }

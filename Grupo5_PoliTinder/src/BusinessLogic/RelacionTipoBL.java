@@ -30,16 +30,11 @@ public class RelacionTipoBL {
         return relaciontipo;
     }
 
-    public boolean add(String Nombre) throws Exception{
-        relaciontipo = new RelacionTipoDTO();
-        relaciontipo.setNombre(Nombre);
+    public boolean add(RelacionTipoDTO relaciontipo) throws Exception{
         return rtDAO.create(relaciontipo);
     }
 
-    public boolean update(int idRelacionTipo, String Nombre) throws Exception{
-        relaciontipo = new RelacionTipoDTO();
-        relaciontipo.setIdRelacionTipo(idRelacionTipo);
-        relaciontipo.setNombre(Nombre);
+    public boolean update(RelacionTipoDTO relaciontipo) throws Exception{
         return rtDAO.update(relaciontipo);
     }
 
@@ -48,6 +43,9 @@ public class RelacionTipoBL {
     }
     public boolean restore(int idRelacionTipo) throws Exception {
         return rtDAO.restore(idRelacionTipo);
+    }
+    public Integer getMaxRow() throws Exception{
+        return rtDAO.getMaxRow();
     }
     
 }
