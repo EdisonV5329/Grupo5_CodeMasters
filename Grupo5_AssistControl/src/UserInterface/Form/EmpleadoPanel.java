@@ -16,6 +16,7 @@ import BusinessLogic.EmpleadoBL;
 import DataAccess.DTO.EmpleadoDTO;
 import UserInterface.ACStyle;
 import UserInterface.CustomerControl.ACButton;
+import UserInterface.CustomerControl.ACLabel;
 import UserInterface.CustomerControl.ACTextBox;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -231,15 +232,15 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
 /************************
  * FormDesing : pat_mic
  ************************/ 
-    private Label 
-            lblTitulo           = new Label("Tabla de empleados de la AssistControl"),
-            lblIdEmpleadoDTO    = new Label("Codigo:"),
-            lblIdCargo          = new Label("Cargo:"),
-            lblNombre           = new Label("Nombre:"),
-            lblApellido         = new Label("Apellido:"),
-            lblCedula           = new Label("Cedula:"),
-            lblCodigoBarra      = new Label("Codigo Baras:"),
-            lblTotalReg         = new Label(" 0 de 0 ");
+    private ACLabel 
+            lblTitulo           = new ACLabel("Tabla de empleados de la AssistControl"),
+            lblIdEmpleadoDTO    = new ACLabel("Codigo:"),
+            lblIdCargo          = new ACLabel("Cargo:"),
+            lblNombre           = new ACLabel("Nombre:"),
+            lblApellido         = new ACLabel("Apellido:"),
+            lblCedula           = new ACLabel("Cedula:"),
+            lblCodigoBarra      = new ACLabel("Codigo Baras:"),
+            lblTotalReg         = new ACLabel(" 0 de 0 ");
     private ACTextBox 
             txtIdEmpleadoDTO     = new ACTextBox(),
             txtIdCargo           = new ACTextBox(), // cambio
@@ -284,9 +285,9 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         
         pnlBtnPage.add(btnPageIni);
         pnlBtnPage.add(btnPageAnt);
-        pnlBtnPage.add(new Label(" Page:( "));
+        pnlBtnPage.add(new ACLabel(" Page:( "));
         pnlBtnPage.add(lblTotalReg); //cambiar
-        pnlBtnPage.add(new Label(" ) "));
+        pnlBtnPage.add(new ACLabel(" ) "));
         pnlBtnPage.add(btnPageSig);
         pnlBtnPage.add(btnPageFin);
 
@@ -399,13 +400,6 @@ public class EmpleadoPanel  extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
         add(txtCodigoBarra, gbc);
-        
-
-        // gbc.gridy = 7;
-        // gbc.gridx = 1;
-        // gbc.gridwidth = 2;
-        // gbc.fill = GridBagConstraints.HORIZONTAL;
-        // add(pnlBtnRow, gbc);
 
         gbc.gridy = 11;
         gbc.gridx = 0;
