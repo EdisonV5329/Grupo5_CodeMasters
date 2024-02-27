@@ -1,16 +1,10 @@
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import java.util.Scanner;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkContrastIJTheme;
 
-import BusinessLogic.CargoBL;
-import BusinessLogic.EmpleadoBL;
-import DataAccess.DTO.EmpleadoDTO;
 import UserInterface.Form.MainForm;
-import UserInterface.Form.SplashScreenForm;
 
 public class App {
     // public static Scanner sc = new Scanner(System.in);

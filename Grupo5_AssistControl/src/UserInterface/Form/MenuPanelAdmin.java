@@ -28,10 +28,8 @@ public class MenuPanelAdmin extends JPanel {
             btnHome                 = new ACButton("Home admin"),
             btnCargo                = new ACButton("Cargos"),
             btnEmpleado             = new ACButton("Empleados"),
-            btnRegistroAsistencia   = new ACButton("Registro asistencias");
-            // btnSexo     = new ACButton("Sexo"),
-            // btnLocalidad= new ACButton("Localidad"),
-            // btnTest     = new ACButton("btnTest");
+            btnRegistroAsistencia   = new ACButton("Registro asistencias"),
+            btnMainHome             = new ACButton("Cerrar sesion");
 
     public MenuPanelAdmin(){
         customizeComponent();
@@ -55,9 +53,7 @@ public class MenuPanelAdmin extends JPanel {
         add(btnCargo);
         add(btnEmpleado);
         add(btnRegistroAsistencia);
-        // add(btnSexo);
-        // add(btnLocalidad);
-        // add(btnTest);
+        add(btnMainHome);
 
         // add-copyright
         add(new JLabel("\u00A9 2024 CodeMasters"));
