@@ -35,10 +35,14 @@ public class AssistControl {
         Admin Administrador = Admin.getInstancia("dsn_vr", "Ve2300@", "Edison", "Vera");
 
         
-        if(Administrador.anadirHora())
-            System.out.println("hora modificado con exito");
-        if(Administrador.modificarHora())
-            System.out.println("hora modificado con exito");
+        // if(Administrador.anadirHora())
+        //     System.out.println("hora modificado con exito");
+        // if(Administrador.modificarHora())
+        //     System.out.println("hora modificado con exito");
+            if(Administrador.borrarHora())
+            System.out.println("hora borrada con exito");
+            if(Administrador.recuperarHora())
+            System.out.println("hora recuperada con exito");
         
         // if(Administrador.anadirDiaTrabajo())
         //     System.out.println("dia trabajo agrgado con exito");

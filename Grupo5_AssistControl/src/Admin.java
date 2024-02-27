@@ -329,5 +329,33 @@ public class Admin extends Usuario {
             String nombre = scanner.next();
         return horaBL.update(idDiaTrabajo, nombre);
     }
+    public boolean borrarHora() throws Exception{
+        HoraBL horaBL = new HoraBL();
+        // // Scanner scanner = new Scanner(System.in);
+        System.out.println("Horas Disponibles");
+        System.out.println("IdHora  | Nombre");
+        for (HoraDTO s : horaBL.getAll()) {
+            if(s.getEstado().equals("A"))
+                System.out.println(s.getIdHora() + " \t| " + s.getNombre());
+        }
+        System.out.print("Horas a eliminar(seleccione el Id): ");
+            int idHora = scanner.nextInt();
+        // // scanner.close();
+        return horaBL.delete(idHora);
+    }
+
+    public boolean recuperarHora() throws Exception{
+        HoraBL horaBL = new HoraBL();
+        // // Scanner scanner = new Scanner(System.in);
+        System.out.println("Horas eliminadas");
+        System.out.println("IdHora  | Nombre");
+        for (HoraDTO s : horaBL.getAll()) {
+            if(s.getEstado().equals("X"))
+                System.out.println(s.getIdHora() + " \t| " + s.getNombre());        
+        }
+        System.out.print("Horas a recuperar(seleccione el Id): ");
+            int idEstatus = scanner.nextInt();
+        return horaBL.restore(idEstatus);
+    }
     
 }
