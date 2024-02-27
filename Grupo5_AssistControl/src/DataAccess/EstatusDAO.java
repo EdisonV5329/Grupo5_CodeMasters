@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataAccess.DTO.EstatusDTO;
+import Framework.ASException;
 
 public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
 
@@ -33,7 +34,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "create()");
         }
     }
 
@@ -55,7 +56,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
                 list.add(s);
             }
         } catch (Exception e) {
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readAll()");
         }
         return list;
     }
@@ -77,7 +78,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
                                     );
             }
         } catch (Exception e) {
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
         }
         return oS;
     }
@@ -96,7 +97,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
             pstmt.executeUpdate();
             return true;
         } catch (Exception e) {
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "update()");
         }
     }
 
@@ -111,7 +112,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
             pstmt.executeUpdate();
             return true;
         } catch (Exception e) {
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
 
@@ -126,7 +127,7 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
             pstmt.executeUpdate();
             return true;
         } catch (Exception e) {
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "restore()");
         }
     }
 }

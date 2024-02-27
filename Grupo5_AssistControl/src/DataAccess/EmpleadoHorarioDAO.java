@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataAccess.DTO.EmpleadoHorarioDTO;
+import Framework.ASException;
 
 public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<EmpleadoHorarioDTO> {
 
@@ -39,7 +40,7 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
             return true;
         }
         catch (SQLException e){ 
-                throw e;// throw new Exception("Error al insertar el sexo en la base de datos");
+                throw new ASException(e.getMessage(), getClass().getName(), "create()");
             }
     }
 
@@ -75,7 +76,7 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
             }
         } 
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readAll()");
         }
         return lst;
     }
@@ -111,7 +112,7 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
             }
         } 
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
         }
         return oS;
     }
@@ -136,7 +137,7 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "update()");
         }
     }
 
@@ -152,7 +153,7 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
 
@@ -168,7 +169,7 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "restore()");
         }
     }
     

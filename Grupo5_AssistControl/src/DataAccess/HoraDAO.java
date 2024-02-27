@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataAccess.DTO.HoraDTO;
+import Framework.ASException;
 
 public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
     
@@ -35,7 +36,7 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
             return true;
         }
         catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "create()");
             }    
     }
 
@@ -63,7 +64,7 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
             }
         }
             catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "readAll()");
         }
             return lst;
         
@@ -92,7 +93,7 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
         }
     }
     catch (SQLException e){ 
-        throw e;
+        throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
 
     }
     return oS;
@@ -116,7 +117,7 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
             return true;
         }
         catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "update()");
             }    
     }
     
@@ -132,7 +133,7 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
             return true;
         }
         catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "delete()");
             }    
     }
 
@@ -148,7 +149,7 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
             return true;
         }
         catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "restore()");
             }    
     }
 }
