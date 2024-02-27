@@ -46,11 +46,9 @@ public class App {
             e.printStackTrace();
         } 
 
-    SplashScreenForm.show();
+    //  SplashScreenForm.show();
        MainForm frmMain = new MainForm("AssistControl");
-        AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
-        System.out.println(AssistControl.getNombre());
-        AssistControl1.iniciarPrograma();
+
     
         
     }

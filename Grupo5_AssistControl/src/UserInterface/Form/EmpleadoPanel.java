@@ -16,7 +16,6 @@ import BusinessLogic.EmpleadoBL;
 import DataAccess.DTO.EmpleadoDTO;
 import UserInterface.ACStyle;
 import UserInterface.CustomerControl.ACButton;
-import UserInterface.CustomerControl.ACLabel;
 import UserInterface.CustomerControl.ACTextBox;
 import java.awt.*;
 import java.awt.event.ActionEvent;
