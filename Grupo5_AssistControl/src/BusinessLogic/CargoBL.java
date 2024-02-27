@@ -29,7 +29,7 @@ public class CargoBL {
         return cargoDTO;
     }
 
-    public boolean add(String nombre, int idCargoPadre, int idEmpleadoHorario) throws Exception{
+    public boolean create(String nombre, int idCargoPadre, int idEmpleadoHorario) throws Exception{
         cargoDTO = new CargoDTO();
         cargoDTO.setNombre(nombre);
         cargoDTO.setIdCargoPadre(idCargoPadre);
@@ -53,4 +53,9 @@ public class CargoBL {
     public boolean restore(int idCargo) throws Exception{
         return cargoDAO.restore(idCargo);
     }
+
+    public Integer getMaxRow() throws Exception{
+        return cargoDAO.getMaxRow();
+    }
+
 }

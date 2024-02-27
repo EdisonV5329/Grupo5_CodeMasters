@@ -32,3 +32,13 @@ INSERT INTO Cargo(
     ,'2'
     ,'Limpieza'
 );
+
+SELECT * FROM Cargo;
+
+SELECT  IdCargo, Nombre
+FROM    Cargo
+WHERE   Estado ='A' AND IdCargo = 1;
+
+SELECT  count(*)
+FROM   Cargo
+WHERE   Estado ='A';

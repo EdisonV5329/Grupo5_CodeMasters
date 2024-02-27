@@ -31,13 +31,13 @@ public class CargoDTO {
         this.FechaModifica = fechaModifica;
     }
     
-    public int getIdCargo() {
+    public Integer getIdCargo() {
         return IdCargo;
     }
     public void setIdCargo(int idCargo) {
         IdCargo = idCargo;
     }
-    public int getIdCargoPadre() {
+    public Integer getIdCargoPadre() {
         return IdCargoPadre;
     }
     public void setIdCargoPadre(int idCargoPadre) {
