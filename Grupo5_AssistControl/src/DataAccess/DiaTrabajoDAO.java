@@ -20,6 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import DataAccess.DTO.DiaTrabajoDTO;
+import Framework.ASException;
 
 public class DiaTrabajoDAO extends SQLiteDataHelper implements IDAO<DiaTrabajoDTO>{
     
@@ -34,7 +35,7 @@ public class DiaTrabajoDAO extends SQLiteDataHelper implements IDAO<DiaTrabajoDT
             return true;
         }
         catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "create()");
             }    
     }
 
@@ -62,7 +63,7 @@ public class DiaTrabajoDAO extends SQLiteDataHelper implements IDAO<DiaTrabajoDT
             }
         }
             catch (SQLException e){ 
-                throw e;
+                throw new ASException(e.getMessage(), getClass().getName(), "readAll()");
         }
             return lst;
         
@@ -91,7 +92,7 @@ public class DiaTrabajoDAO extends SQLiteDataHelper implements IDAO<DiaTrabajoDT
         }
     }
     catch (SQLException e){ 
-        throw e;
+        throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
     }
     return oS;
     }
@@ -116,7 +117,7 @@ public class DiaTrabajoDAO extends SQLiteDataHelper implements IDAO<DiaTrabajoDT
     
     }
     catch (SQLException e){ 
-        throw e;
+        throw new ASException(e.getMessage(), getClass().getName(), "update()");
     }
 
 }
@@ -133,7 +134,7 @@ public boolean delete(Integer id) throws Exception {
         return true;
     }
     catch(SQLException e){
-        throw e;
+        throw new ASException(e.getMessage(), getClass().getName(), "delete()");
     }
 }
 
@@ -149,7 +150,7 @@ public boolean restore(Integer id) throws Exception {
         return true;
     }
     catch(SQLException e){
-        throw e;
+        throw new ASException(e.getMessage(), getClass().getName(), "restore()");
     }
 }
 
