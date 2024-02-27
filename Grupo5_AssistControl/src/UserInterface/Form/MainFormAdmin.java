@@ -23,7 +23,7 @@ public class MainFormAdmin extends JFrame {
         customizeComponent(tittleApp);
         pnlMenu.btnHome.addActionListener(      e -> setPanel(new MainPanel())); 
         pnlMenu.btnCargo.addActionListener(     e -> setPanel(new CargoPanel()));
-        pnlMenu.btnLEmpleado.addActionListener(e -> setPanel(new EmpleadoPanel()));
+        pnlMenu.btnEmpleado.addActionListener(e -> setPanel(new EmpleadoPanel()));
         pnlMenu.btnRegistroAsistencia.addActionListener( e -> setPanel(new RegistroHorarioPanel())); 
     }
 

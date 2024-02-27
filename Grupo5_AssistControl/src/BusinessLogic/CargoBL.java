@@ -24,12 +24,12 @@ public class CargoBL {
         return cargoDAO.readAll();
     }
     
-    public CargoDTO getBy(int idCargo) throws Exception{
+    public CargoDTO getBy(Integer idCargo) throws Exception{
         cargoDTO = cargoDAO.readBy(idCargo);
         return cargoDTO;
     }
 
-    public boolean add(String nombre, int idCargoPadre, int idEmpleadoHorario) throws Exception{
+    public boolean create(String nombre, Integer idCargoPadre, Integer idEmpleadoHorario) throws Exception{
         cargoDTO = new CargoDTO();
         cargoDTO.setNombre(nombre);
         cargoDTO.setIdCargoPadre(idCargoPadre);
@@ -37,7 +37,7 @@ public class CargoBL {
         return cargoDAO.create(cargoDTO);
     }
 
-    public boolean update(int idCargo, String nombre, int idCargoPadre, int idEmpleadoHorario) throws Exception{
+    public boolean update(Integer idCargo, String nombre, Integer idCargoPadre, Integer idEmpleadoHorario) throws Exception{
         cargoDTO = new CargoDTO();
         cargoDTO.setNombre(nombre);
         cargoDTO.setIdCargoPadre(idCargoPadre);
@@ -46,11 +46,16 @@ public class CargoBL {
         return cargoDAO.update(cargoDTO);
     }
 
-    public boolean delete(int idCargo) throws Exception{
+    public boolean delete(Integer idCargo) throws Exception{
         return cargoDAO.delete(idCargo);
     }
     
-    public boolean restore(int idCargo) throws Exception{
+    public boolean restore(Integer idCargo) throws Exception{
         return cargoDAO.restore(idCargo);
     }
+
+    public Integer getMaxRow() throws Exception{
+        return cargoDAO.getMaxRow();
+    }
+
 }

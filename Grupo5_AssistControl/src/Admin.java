@@ -89,7 +89,7 @@ public class Admin extends Usuario {
         }
         System.out.print("Elija un horario(seleccione el Id): ");
             int idEmpleadoHorario = scanner.nextInt();
-        return cargoBL.add(nombre, idCargoPadre, idEmpleadoHorario);
+        return cargoBL.create(nombre, idCargoPadre, idEmpleadoHorario);
     }
 
     public boolean modificarCargo() throws Exception{

@@ -155,4 +155,19 @@ public class PersonaDAO extends SQLiteDataHelper implements IDAO<PersonaDTO> {
         }
     }
 
+    public int getMaxId() throws Exception {
+    
+        String query = "SELECT COUNT(*) AS count FROM SEXO WHERE Estado = 'A'";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("count");
+            }
+            return 0; // Return 0 if no records found (optional)
+        } catch (SQLException e) {
+            throw e; //new Exception(e.getMessage(), getClass().getName(), "getCountOfEstadoA()");
+        }
+    }
 }

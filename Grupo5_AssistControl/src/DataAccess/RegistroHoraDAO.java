@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DataAccess.DTO.RegistroHoraDTO;
+import Framework.ASException;
 
 public class RegistroHoraDAO extends SQLiteDataHelper{
 
@@ -53,7 +54,7 @@ public class RegistroHoraDAO extends SQLiteDataHelper{
             }
         } 
         catch (SQLException e) {
-            throw e;    
+            throw new ASException(e.getMessage(), getClass().getName(), "readAll()");   
         }
         return lst;
     }
@@ -91,7 +92,7 @@ public class RegistroHoraDAO extends SQLiteDataHelper{
             }
         } 
         catch (SQLException e) {
-            throw e;    
+            throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
         }
         return rhDTO;
     }
@@ -139,7 +140,7 @@ public class RegistroHoraDAO extends SQLiteDataHelper{
             }
         } 
         catch (SQLException e) {
-            throw e;    
+            throw new ASException(e.getMessage(), getClass().getName(), "readAllEstructura()"); 
         }
         return lst;
     }

@@ -6,20 +6,17 @@ import com.formdev.flatlaf.FlatLightLaf;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkContrastIJTheme;
 
+import BusinessLogic.CargoBL;
+import BusinessLogic.EmpleadoBL;
+import DataAccess.DTO.EmpleadoDTO;
 import UserInterface.Form.MainForm;
-<<<<<<< HEAD
-import BusinessLogic.EstatusBL;
-import DataAccess.RegistroHorarioDAO;
-import DataAccess.DTO.EstatusDTO;
-import DataAccess.DTO.RegistroHorarioDTO;
-=======
 import UserInterface.Form.SplashScreenForm;
->>>>>>> e1688c2bd9d4deeabd284c25a5fa5a1083a1271f
 
 public class App {
     // public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+        
         // AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
         // System.out.println(AssistControl.getNombre());
         // AssistControl1.iniciarPrograma();
