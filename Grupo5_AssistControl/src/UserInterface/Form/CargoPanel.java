@@ -58,8 +58,9 @@ public class CargoPanel extends JPanel implements ActionListener{
 
     private void showRow(){
         boolean cargoNull = (cargo == null);
-        txtIdCargo.setText((cargoNull) ? " " : cargo.getIdCargo().toString());
-        txtNombre.setText((cargoNull) ? " " : cargo.getNombre());
+        txtIdCargo.setText((cargoNull) ? "" : cargo.getIdCargo().toString());
+        txtNombre.setText((cargoNull) ? "" : cargo.getNombre());
+        txtIdEmpleadoHorario.setText((cargoNull) ? "" : cargo.getIdEmpleadoHorario().toString());
         lblTotalReg.setText(idCargo.toString() + " de " + idMaxCargo.toString());
     }
 
@@ -77,6 +78,7 @@ public class CargoPanel extends JPanel implements ActionListener{
                     cargo = new CargoDTO();
                 } else {
                     cargo.setNombre(txtNombre.getText());
+                    cargo.setIdEmpleadoHorario(Integer.parseInt(txtIdEmpleadoHorario.getText()));
                 }
                 if (!((cargoNull) ? cargoBL.create(cargo.getNombre(), 0, 0) : cargoBL.update(cargo.getIdCargo(), cargo.getNombre(), 0, 0))) // Use the correct methods with additional parameters
                     ACStyle.showMsgError("Error al guardar");
@@ -132,13 +134,14 @@ public class CargoPanel extends JPanel implements ActionListener{
     }
 
     private void showTable() throws Exception {
-        String[] header = {"Id", "Nombre", "Estado"};
-        Object[][] data = new Object[cargoBL.getAll().size()][3];
+        String[] header = {"Id", "Nombre", "IdEmpleadoHorario", "Estado"};
+        Object[][] data = new Object[cargoBL.getAll().size()][4];
         int index = 0;
         for (CargoDTO s : cargoBL.getAll()) {
             data[index][0] = s.getIdCargo();
             data[index][1] = s.getNombre();
-            data[index][2] = s.getEstado();
+            data[index][2] = s.getIdEmpleadoHorario();
+            data[index][3] = s.getEstado();
             index++;
         }
     
@@ -180,10 +183,12 @@ public class CargoPanel extends JPanel implements ActionListener{
             lblTitulo = new ACLabel("CARGO"),
             lblIdCargo = new ACLabel(" Codigo:   "),
             lblNombre = new ACLabel(" Descripcion:   "),
+            lblIdEmpleadoHorario = new ACLabel(" Horario:   "),
             lblTotalReg = new ACLabel("0 de 0");
     private ACTextBox
             txtIdCargo = new ACTextBox(),
-            txtNombre = new ACTextBox();
+            txtNombre = new ACTextBox(),
+            txtIdEmpleadoHorario = new ACTextBox();
     private ACButton
             btnPageIni  = new ACButton(" |< "),
             btnPageAnt  = new ACButton(" << "),
@@ -212,6 +217,7 @@ public class CargoPanel extends JPanel implements ActionListener{
         txtIdCargo.setEnabled(false);
         txtIdCargo.setBorderLine();
         txtNombre.setBorderLine();
+        txtIdEmpleadoHorario.setBorderLine();
 
         pnlBtnPage.add(btnPageIni);
         pnlBtnPage.add(btnPageAnt);
@@ -294,13 +300,16 @@ public class CargoPanel extends JPanel implements ActionListener{
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
         add(txtNombre, gbc);
 
-        // gbc.gridy = 7;
-        // gbc.gridx = 1;
-        // gbc.gridwidth = 2;
-        // gbc.fill = GridBagConstraints.HORIZONTAL;
-        // add(pnlBtnRow, gbc);
-
         gbc.gridy = 7;
+        gbc.gridx = 0;
+        add(lblIdEmpleadoHorario, gbc);
+        gbc.gridy = 7;
+        gbc.gridx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
+        add(txtIdEmpleadoHorario, gbc);
+
+        gbc.gridy = 8;
         gbc.gridx = 0;
         gbc.gridwidth = 3;
         gbc.insets = new Insets(30, 0, 0, 0);

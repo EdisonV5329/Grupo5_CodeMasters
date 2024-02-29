@@ -9,6 +9,10 @@ public class RelacionTipoDTO {
     
     public  RelacionTipoDTO() {}
 
+    public RelacionTipoDTO(String nombre) {
+        Nombre = nombre;
+    }
+
     public RelacionTipoDTO(int idRegaloTipo, String nombre, String estado, String fechaCrea, String fechaModifica) {
         this.IdRelacionTipo = idRegaloTipo;
         this.Nombre = nombre;
@@ -17,7 +21,7 @@ public class RelacionTipoDTO {
         this.FechaModifica = fechaModifica;
     }
 
-    public int getIdRelacionTipo() {
+    public Integer getIdRelacionTipo() {
         return IdRelacionTipo;
     }
     public void setIdRelacionTipo(int idRegaloTipo) {

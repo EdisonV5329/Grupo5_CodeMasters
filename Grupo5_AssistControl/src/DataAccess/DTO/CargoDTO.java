@@ -10,17 +10,17 @@ Script: Creacion de la clase CargoDTO
 package DataAccess.DTO;
 
 public class CargoDTO {
-    private int    IdCargo;
-    private int    IdCargoPadre;
-    private int    IdEmpleadoHorario;
-    private String Nombre;
-    private String Estado;
-    private String FechaCrea;
-    private String FechaModifica;
+    private Integer IdCargo;
+    private Integer IdCargoPadre;
+    private Integer IdEmpleadoHorario;
+    private String  Nombre;
+    private String  Estado;
+    private String  FechaCrea;
+    private String  FechaModifica;
     
     public CargoDTO() {}
     
-    public CargoDTO(int idCargo, int idCargoPadre, int IdEmpleadoHorario, String nombre, String estado, String fechaCrea,
+    public CargoDTO(Integer idCargo, Integer idCargoPadre, Integer IdEmpleadoHorario, String nombre, String estado, String fechaCrea,
     String fechaModifica) {
         this.IdCargo = idCargo;
         this.IdCargoPadre = idCargoPadre;
@@ -34,20 +34,20 @@ public class CargoDTO {
     public Integer getIdCargo() {
         return IdCargo;
     }
-    public void setIdCargo(int idCargo) {
+    public void setIdCargo(Integer idCargo) {
         IdCargo = idCargo;
     }
     public Integer getIdCargoPadre() {
         return IdCargoPadre;
     }
-    public void setIdCargoPadre(int idCargoPadre) {
+    public void setIdCargoPadre(Integer idCargoPadre) {
         IdCargoPadre = idCargoPadre;
     }
-    public int getIdEmpleadoHorario() {
+    public Integer getIdEmpleadoHorario() {
         return IdEmpleadoHorario;
     }
 
-    public void setIdEmpleadoHorario(int idEmpleadoHorario) {
+    public void setIdEmpleadoHorario(Integer idEmpleadoHorario) {
         IdEmpleadoHorario = idEmpleadoHorario;
     }
     public String getNombre() {

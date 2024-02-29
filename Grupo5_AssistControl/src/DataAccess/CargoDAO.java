@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import DataAccess.DTO.CargoDTO;
+import Framework.ASException;
 
 public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
 
@@ -35,7 +36,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             return true;
         }
         catch (SQLException e){ 
-                throw e;// throw new Exception("Error al insertar el sexo en la base de datos");
+                throw new ASException(e.getMessage(), getClass().getName(), "create()");
         }    
     }
 
@@ -49,8 +50,8 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
                         + ",Estado              "
                         + ",FechaCrea           "
                         + ",FechaModifica       "
-                        + " FROM   Cargo";
-                        // + " WHERE  Estado = 'A' ";
+                        + " FROM   Cargo"
+                        + " WHERE  Estado = 'A' ";
         try{
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -67,7 +68,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             }
         } 
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readAll()");
         }
         return lst;
     }
@@ -83,8 +84,8 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
                         + ",FechaCrea           "
                         + ",FechaModifica       "
                         + " FROM   Cargo"
-                        // + " WHERE  Estado = 'A' " 
-                        + " WHERE IdCargo = " + id.toString();
+                        + " WHERE  Estado = 'A' " 
+                        + " AND IdCargo = " + id.toString();
         try{
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -100,7 +101,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             }
         } 
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
         }
         return oS;
     }
@@ -123,7 +124,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "update()");
         }
     }
 
@@ -139,7 +140,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
 
@@ -155,7 +156,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "restore()");
         }
     }
     
@@ -170,7 +171,7 @@ public class CargoDAO extends SQLiteDataHelper implements IDAO<CargoDTO>{
           }
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "getMaxRow()");
     }
     return 0;
     }

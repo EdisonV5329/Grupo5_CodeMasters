@@ -24,7 +24,7 @@ public class PersonaRolBL {
         return prDAO.readAll();
     }
 
-    public PersonaRolDTO getBy(int idPersonaRol) throws Exception{
+    public PersonaRolDTO getBy(Integer idPersonaRol) throws Exception{
         personarol = prDAO.readBy(idPersonaRol);
         return personarol;
     }
@@ -49,6 +49,10 @@ public class PersonaRolBL {
     }
     public boolean restore(int idPersonaRol) throws Exception {
         return prDAO.restore(idPersonaRol);
+    }
+
+    public Integer getMaxId() throws Exception{
+        return prDAO.getMaxIdPersonaRol();
     }
     
 }

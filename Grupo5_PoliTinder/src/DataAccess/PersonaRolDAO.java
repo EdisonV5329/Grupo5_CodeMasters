@@ -45,8 +45,8 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
                      + " , Estado             "
                      + " , FechaCrea          "
                      + " , FechaModifica      "
-                     + " FROM PersonaRol      "
-                     + " WHERE Estado = 'A' ";
+                     + " FROM PersonaRol      ";
+                    //  + " WHERE Estado = 'A' ";
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -76,7 +76,8 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
                      + " , FechaCrea          "
                      + " , FechaModifica      "
                      + " FROM PersonaRol      "
-                     + " WHERE Estado = 'A' AND IdPersonaRol = " + id.toString();
+                    //  + " WHERE Estado = 'A'   "
+                     + " WHERE IdPersonaRol = " + id.toString();
         try {
             Connection conn = openConnection();
             Statement stmt = conn.createStatement();
@@ -143,5 +144,22 @@ public class PersonaRolDAO extends SQLiteDataHelper implements IDAO<PersonaRolDT
         catch(SQLException e){
             throw e;
         }
+    }
+
+    public Integer getMaxIdPersonaRol() throws Exception {
+        String query =" SELECT COUNT(*) TotalPersonaRol FROM PersonaRol "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } catch (SQLException e) {
+            throw e;
+            // throw new e Exception(e.getMessage(), getClass().getName(), "getCountOfEstadoA()");
+        }
+        return 0;
     }
 }

@@ -10,10 +10,12 @@ script: Creacion de la clase MainFormAdmin
 package UserInterface.Form;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class MainFormAdmin extends JFrame {
     MenuPanelAdmin  pnlMenu = new MenuPanelAdmin();
@@ -23,8 +25,9 @@ public class MainFormAdmin extends JFrame {
         customizeComponent(tittleApp);
         pnlMenu.btnHome.addActionListener(      e -> setPanel(new MainPanel())); 
         pnlMenu.btnCargo.addActionListener(     e -> setPanel(new CargoPanel()));
-        pnlMenu.btnLEmpleado.addActionListener(e -> setPanel(new EmpleadoPanel()));
+        pnlMenu.btnEmpleado.addActionListener(e -> setPanel(new EmpleadoPanel()));
         pnlMenu.btnRegistroAsistencia.addActionListener( e -> setPanel(new RegistroHorarioPanel())); 
+        pnlMenu.btnMainHome.addActionListener(e -> SwingUtilities.getWindowAncestor((Component)e.getSource()).dispose());
     }
 
     private void setPanel(JPanel formularioPanel) {

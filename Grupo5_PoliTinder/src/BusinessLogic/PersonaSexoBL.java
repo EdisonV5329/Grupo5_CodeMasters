@@ -9,6 +9,7 @@ src: Creacion de la clase PersonaSexoBL
 */
 package BusinessLogic;
 
+
 import java.util.List;
 
 import DataAccess.PersonaSexoDAO;
@@ -47,8 +48,10 @@ public class PersonaSexoBL {
     public boolean delete(int idPersonaSexo) throws Exception {
         return psDAO.delete(idPersonaSexo);
     }
+   
     public boolean restore(int idPersonaSexo) throws Exception {
         return psDAO.restore(idPersonaSexo);
     }
+    
     
 }

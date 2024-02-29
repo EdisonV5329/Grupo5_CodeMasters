@@ -35,7 +35,3 @@ SELECT * FROM PersonaRol;
 SELECT IdPersonaRol, Nombre
 FROM PersonaRol
 WHERE Estado = 'A' AND IdPersonaRol = 2;
-
-SELECT count(*)
-FROM PersonaRol
-WHERE Estado = 'A';

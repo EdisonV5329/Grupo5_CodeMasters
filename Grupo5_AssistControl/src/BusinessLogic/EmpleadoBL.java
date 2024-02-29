@@ -24,7 +24,7 @@ public class EmpleadoBL {
         return empleadoDAO.readAll();
     }
     
-    public EmpleadoDTO getBy(int idEmpleado) throws Exception{
+    public EmpleadoDTO getBy(Integer idEmpleado) throws Exception{
         empleadoDTO = empleadoDAO.readBy(idEmpleado);
         return empleadoDTO;
     }
@@ -34,7 +34,7 @@ public class EmpleadoBL {
         empleadoDTO.setNombre(nombre);
         empleadoDTO.setApellido(apellido);
         empleadoDTO.setCedula(cedula);
-        empleadoDTO.setHuellaDigital(HuellaDigital);
+        empleadoDTO.setCodigoBarras(HuellaDigital);
         empleadoDTO.setIdCargo(idCargo);
         return empleadoDAO.create(empleadoDTO);
     }
@@ -55,4 +55,8 @@ public class EmpleadoBL {
     public boolean restore(int idEmpleado) throws Exception{
         return empleadoDAO.restore(idEmpleado);
     }
+
+    public Integer getMaxId() throws Exception{
+        return empleadoDAO.getMaxIdEmpleado();
+    }   
 }

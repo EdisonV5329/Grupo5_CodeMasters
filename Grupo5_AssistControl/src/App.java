@@ -1,18 +1,16 @@
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import java.util.Scanner;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkContrastIJTheme;
 
 import UserInterface.Form.MainForm;
-import UserInterface.Form.SplashScreenForm;
 
 public class App {
     // public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+        
         // AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
         // System.out.println(AssistControl.getNombre());
         // AssistControl1.iniciarPrograma();
@@ -42,11 +40,9 @@ public class App {
             e.printStackTrace();
         } 
 
-    SplashScreenForm.show();
+    //  SplashScreenForm.show();
        MainForm frmMain = new MainForm("AssistControl");
-        AssistControl AssistControl1 = AssistControl.getInstancia("AssistControl");
-        System.out.println(AssistControl.getNombre());
-        AssistControl1.iniciarPrograma();
+
     
         
     }

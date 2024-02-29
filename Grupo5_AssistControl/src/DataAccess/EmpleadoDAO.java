@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import DataAccess.DTO.EmpleadoDTO;
+import Framework.ASException;
 
 public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
 
@@ -33,13 +34,13 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             pstmt.setInt(1,entity.getIdCargo());
             pstmt.setString(2,entity.getNombre());
             pstmt.setString(3,entity.getApellido());
-            pstmt.setString(4,entity.getHuellaDigital());
+            pstmt.setString(4,entity.getCodigoBarras());
             pstmt.setString(5,entity.getCedula());
             pstmt.executeUpdate();
             return true;
         }
         catch (SQLException e){ 
-                throw e;// throw new Exception("Error al insertar el sexo en la base de datos");
+                throw new ASException(e.getMessage(), getClass().getName(), "create()");
         }
     }
 
@@ -75,7 +76,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             }
         } 
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readAll()");
         }
         return lst;
     }
@@ -112,7 +113,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             }
         } 
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "readBy()");
         }
         return oS;
     }
@@ -135,7 +136,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "update()");
         }
     }
 
@@ -151,7 +152,7 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
 
@@ -167,7 +168,24 @@ public class EmpleadoDAO extends SQLiteDataHelper implements IDAO<EmpleadoDTO> {
             return true;
         }
         catch(SQLException e){
-            throw e;
+            throw new ASException(e.getMessage(), getClass().getName(), "restore()");
         }
     }    
+
+    public Integer getMaxIdEmpleado() throws Exception {
+        String query =" SELECT COUNT(*) TotalEmpleado FROM Empleado "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } catch (SQLException e) {
+            throw new ASException(e.getMessage(), getClass().getName(), "getMaxIdEmpleado()");
+            
+        }
+        return 0;
+    }
 }

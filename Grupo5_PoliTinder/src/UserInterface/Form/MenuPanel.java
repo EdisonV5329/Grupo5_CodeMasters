@@ -17,10 +17,13 @@ public class MenuPanel extends JPanel{
     public  Button   
             btnHome         = new Button("Home"),
             btnLogin        = new Button("Login"),
+            btnSexo         = new Button("Sexo"),
+            btnPersonaRol   = new Button("PersonaRol"),
             btnRegaloTipo   = new Button("RegaloTipo"),
             btnRegalo    = new Button("Regalo"),
             btnLocalidad    = new Button("Localidad"),
-            btnTest         = new Button("btnTest");
+            btnTest         = new Button("btnTest"),
+            btnRelacionTipo = new Button("RelacionTipo");
     public Object btnEmpleado;
 
     public MenuPanel(){
@@ -43,12 +46,16 @@ public class MenuPanel extends JPanel{
         // add-botones
         add(btnHome);
         add(btnLogin);
+        add(btnSexo);
+        add(btnPersonaRol);
         add(btnRegaloTipo);
         add(btnRegalo);
         add(btnLocalidad);
         add(btnTest);
+        add(btnRelacionTipo);
 
         // add-copyright
     }
     
 }
+
