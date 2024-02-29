@@ -108,7 +108,7 @@ public class App {
         e.printStackTrace();
     } 
 
-   SplashScreenForm.show();
+   //SplashScreenForm.show();
    MainForm frmMain = new MainForm("PoliTinder");
     }
 }

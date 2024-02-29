@@ -34,17 +34,12 @@ public class RegaloBL {
         return regalo;
     }
 
-    public boolean add(String Nombre) throws Exception{
-        regalo = new RegaloDTO();
-        regalo.setNombre(Nombre);
-        return rgDAO.create(regalo);
+    public boolean create(RegaloDTO regaloDTO) throws Exception{
+        return rgDAO.create(regaloDTO);
     }
 
-    public boolean update(int idRegalo, String Nombre) throws Exception{
-        regalo = new RegaloDTO();
-        regalo.setIdRegalo(idRegalo);
-        regalo.setNombre(Nombre);
-        return rgDAO.update(regalo);
+    public boolean update(RegaloDTO regaloDTO) throws Exception{
+        return rgDAO.update(regaloDTO);
     }
 
     public boolean delete(int idRegalo) throws Exception {
@@ -54,4 +49,7 @@ public class RegaloBL {
         return rgDAO.restore(idRegalo);
     }
     
+    public Integer getMaxRow() throws Exception{
+        return rgDAO.getMaxRow();
+    }
 }

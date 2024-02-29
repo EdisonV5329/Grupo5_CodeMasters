@@ -1,3 +1,13 @@
+/*
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| matheus.velasco@epn.edu.ec   MATHEUSX  |
+|----------------------------------------|
+Autor: MATHEUSX
+Fecha: 25.feb.2k24
+Metodo: Creacion de la clase Button
+
+*/
 package UserInterface.CustomeControls;
 
 import java.awt.Color;
