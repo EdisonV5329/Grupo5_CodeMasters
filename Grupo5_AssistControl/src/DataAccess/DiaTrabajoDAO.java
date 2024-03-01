@@ -115,43 +115,60 @@ public class DiaTrabajoDAO extends SQLiteDataHelper implements IDAO<DiaTrabajoDT
             pstmt.executeUpdate();
             return true;
     
-    }
-    catch (SQLException e){ 
-        throw new ASException(e.getMessage(), getClass().getName(), "update()");
+        }
+        catch (SQLException e){ 
+            throw new ASException(e.getMessage(), getClass().getName(), "update()");
+        }
+
     }
 
-}
+    @Override
+    public boolean delete(Integer id) throws Exception {
+        String  query = "UPDATE DiaTrabajo SET Estado = ? WHERE IdDiaTrabajo = ?";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,"X"); 
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch(SQLException e){
+            throw new ASException(e.getMessage(), getClass().getName(), "delete()");
+        }
+    }
 
-@Override
-public boolean delete(Integer id) throws Exception {
-    String  query = "UPDATE DiaTrabajo SET Estado = ? WHERE IdDiaTrabajo = ?";
-    try {
-        Connection conn = openConnection();
-        PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1,"X"); 
-        pstmt.setInt(2, id);
-        pstmt.executeUpdate();
-        return true;
+    @Override
+    public boolean restore(Integer id) throws Exception {
+        String  query = "UPDATE DiaTrabajo SET Estado = ? WHERE IdDiaTrabajo = ?";
+        try {
+            Connection conn = openConnection();
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1,"A"); 
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            return true;
+        }
+        catch(SQLException e){
+            throw new ASException(e.getMessage(), getClass().getName(), "restore()");
+        }
     }
-    catch(SQLException e){
-        throw new ASException(e.getMessage(), getClass().getName(), "delete()");
-    }
-}
 
-@Override
-public boolean restore(Integer id) throws Exception {
-    String  query = "UPDATE DiaTrabajo SET Estado = ? WHERE IdDiaTrabajo = ?";
-    try {
-        Connection conn = openConnection();
-        PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1,"A"); 
-        pstmt.setInt(2, id);
-        pstmt.executeUpdate();
-        return true;
+    public Integer getMaxRow()  throws Exception  {
+        String query =" SELECT COUNT(*) TotalReg FROM DiaTrabajo "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } 
+        catch (SQLException e) {
+            throw new ASException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return 0;
     }
-    catch(SQLException e){
-        throw new ASException(e.getMessage(), getClass().getName(), "restore()");
-    }
-}
 
 }

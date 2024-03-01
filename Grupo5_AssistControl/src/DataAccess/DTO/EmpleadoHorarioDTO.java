@@ -10,20 +10,29 @@ src: Creacion de la clase EmpleadoHorarioDTO
 package DataAccess.DTO;
 
 public class EmpleadoHorarioDTO {
-    private int    IdEmpleadoHorario;
-    private int    IdDiaTrabajo;
-    private int    IdHoraAmEntrada;
-    private int    IdHoraAmSalida;
-    private int    IdHoraPmEntrada;
-    private int    IdHoraPmSalida;
-    private String Estado;
-    private String FechaCrea;
-    private String FechaModifica;
+    private Integer    IdEmpleadoHorario;
+    private Integer    IdDiaTrabajo;
+    private Integer    IdHoraAmEntrada;
+    private Integer    IdHoraAmSalida;
+    private Integer    IdHoraPmEntrada;
+    private Integer    IdHoraPmSalida;
+    private String     Estado;
+    private String     FechaCrea;
+    private String     FechaModifica;
 
     public  EmpleadoHorarioDTO() {}
 
-    public EmpleadoHorarioDTO(int idEmpleadoHorario, int idDiaTrabajo, int idHoraAmEntrada, int idHoraAmSalida,
-            int idHoraPmEntrada, int idHoraPmSalida, String estado, String fechaCrea, String fechaModifica) {
+    public EmpleadoHorarioDTO(Integer idDiaTrabajo, Integer idHoraAmEntrada, Integer idHoraAmSalida,
+    Integer idHoraPmEntrada, Integer idHoraPmSalida) {
+        IdDiaTrabajo = idDiaTrabajo;
+        IdHoraAmEntrada = idHoraAmEntrada;
+        IdHoraAmSalida = idHoraAmSalida;
+        IdHoraPmEntrada = idHoraPmEntrada;
+        IdHoraPmSalida = idHoraPmSalida;
+    }
+
+    public EmpleadoHorarioDTO(Integer idEmpleadoHorario, Integer idDiaTrabajo, Integer idHoraAmEntrada, Integer idHoraAmSalida,
+            Integer idHoraPmEntrada, Integer idHoraPmSalida, String estado, String fechaCrea, String fechaModifica) {
         this.IdEmpleadoHorario = idEmpleadoHorario;
         this.IdDiaTrabajo = idDiaTrabajo;
         this.IdHoraAmEntrada = idHoraAmEntrada;
@@ -35,40 +44,40 @@ public class EmpleadoHorarioDTO {
         this.FechaModifica = fechaModifica;
     }
 
-    public int getIdEmpleadoHorario() {
+    public Integer getIdEmpleadoHorario() {
         return IdEmpleadoHorario;
     }
-    public void setIdEmpleadoHorario(int idEmpleadoHorario) {
+    public void setIdEmpleadoHorario(Integer idEmpleadoHorario) {
         IdEmpleadoHorario = idEmpleadoHorario;
     }
-    public int getIdDiaTrabajo() {
+    public Integer getIdDiaTrabajo() {
         return IdDiaTrabajo;
     }
-    public void setIdDiaTrabajo(int idDiaTrabajo) {
+    public void setIdDiaTrabajo(Integer idDiaTrabajo) {
         IdDiaTrabajo = idDiaTrabajo;
     }
-    public int getIdHoraAmEntrada() {
+    public Integer getIdHoraAmEntrada() {
         return IdHoraAmEntrada;
     }
-    public void setIdHoraAmEntrada(int idHoraAmEntrada) {
+    public void setIdHoraAmEntrada(Integer idHoraAmEntrada) {
         IdHoraAmEntrada = idHoraAmEntrada;
     }
-    public int getIdHoraAmSalida() {
+    public Integer getIdHoraAmSalida() {
         return IdHoraAmSalida;
     }
-    public void setIdHoraAmSalida(int idHoraAmSalida) {
+    public void setIdHoraAmSalida(Integer idHoraAmSalida) {
         IdHoraAmSalida = idHoraAmSalida;
     }
-    public int getIdHoraPmEntrada() {
+    public Integer getIdHoraPmEntrada() {
         return IdHoraPmEntrada;
     }
-    public void setIdHoraPmEntrada(int idHoraPmEntrada) {
+    public void setIdHoraPmEntrada(Integer idHoraPmEntrada) {
         IdHoraPmEntrada = idHoraPmEntrada;
     }
-    public int getIdHoraPmSalida() {
+    public Integer getIdHoraPmSalida() {
         return IdHoraPmSalida;
     }
-    public void setIdHoraPmSalida(int idHoraPmSalida) {
+    public void setIdHoraPmSalida(Integer idHoraPmSalida) {
         IdHoraPmSalida = idHoraPmSalida;
     }
     public String getEstado() {

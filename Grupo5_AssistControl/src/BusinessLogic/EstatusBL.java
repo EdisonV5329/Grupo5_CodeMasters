@@ -1,9 +1,9 @@
 /*
-|------------------------------------------------|
-| (©) 2K24 EPN-FIS, All rights reserved.        |
-| francisco.torres@epn.edu.ec   Francisco Torres |
-|------------------------------------------------|
-Autor: Francisco Torres
+|----------------------------------------|
+| (©) 2K24 EPN-FIS, All rights reserved. |
+| mateo.simbana@epn.edu.ec   mateitopro  |
+|----------------------------------------|
+Autor: Francisco Torres y mateitopro
 Fecha: 24.feb.2k24
 script: Creacion de la clase EstatusBL
 */
@@ -29,16 +29,11 @@ public class EstatusBL {
         return estatus;
     }
 
-    public boolean add(String Nombre) throws Exception{
-        estatus = new EstatusDTO();
-        estatus.setNombre(Nombre);
+    public boolean add(EstatusDTO estatus) throws Exception{
         return eDAO.create(estatus);
     }
 
-    public boolean update(int idEstatus, String Nombre) throws Exception{
-        estatus = new EstatusDTO();
-        estatus.setIdEstatus(idEstatus);
-        estatus.setNombre(Nombre);
+    public boolean update(EstatusDTO estatus) throws Exception{
         return eDAO.update(estatus);
     }
 
@@ -47,5 +42,9 @@ public class EstatusBL {
     }
     public boolean restore(int idEstatus) throws Exception {
         return eDAO.restore(idEstatus);
+    }
+
+    public Integer getMaxRow() throws Exception{
+        return eDAO.getMaxRow();
     }
 }

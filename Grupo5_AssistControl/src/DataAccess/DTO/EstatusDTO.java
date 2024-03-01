@@ -1,23 +1,29 @@
 /*
 |------------------------------------------------|
-| (©) 2K24 EPN-FIS, All rights reserved.        |
+| (©) 2K24 EPN-FIS, All rights reserved.         |
 | francisco.torres@epn.edu.ec   Francisco Torres |
+| mateo.simbana@epn.edu.ec   mateitopro          |
 |------------------------------------------------|
-Autor: Francisco Torres
-Fecha: 24.feb.2k24
+Autor: Francisco Torres y mateitopro
+Fecha: 29.feb.2k24
 script: Creacion de la clase EstatusDTO
 */
 package DataAccess.DTO;
 
 public class EstatusDTO {
-    private int    idEstatus;     
-    private String Nombre;       
-    private String Estado;       
-    private String FechaCrea;    
-    private String FechaModifica;
+    private Integer idEstatus;     
+    private String  Nombre;       
+    private String  Estado;       
+    private String  FechaCrea;    
+    private String  FechaModifica;
 
     public EstatusDTO(){}
-    public EstatusDTO(int  idEstatus,    
+
+    public EstatusDTO(String nombre) {
+        Nombre = nombre;
+    }
+    
+    public EstatusDTO(Integer  idEstatus,    
                     String Nombre,       
                     String Estado,       
                     String FechaCrea,    
@@ -31,10 +37,10 @@ public class EstatusDTO {
         this.FechaModifica = FechaModifica;      
     }
 
-    public int getIdEstatus() {
+    public Integer getIdEstatus() {
         return idEstatus;
     }
-    public void setIdEstatus(int idestatus) {
+    public void setIdEstatus(Integer idestatus) {
         idEstatus = idestatus;
     }
     public String getNombre() {

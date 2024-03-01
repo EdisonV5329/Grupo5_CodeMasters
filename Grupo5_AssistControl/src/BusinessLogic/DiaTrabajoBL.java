@@ -1,9 +1,9 @@
 /*
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
-| matheus.velasco@epn.edu.ec   MATHEUSX  |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: MATHEUSX
+Autor: MATHEUSX y mateitopro
 Fecha: 25.feb.2k24
 script: Creacion de la clase DiaTrabajoBL
 versión: 1.0
@@ -30,16 +30,11 @@ public class DiaTrabajoBL {
         return diaTrabajoDTO;
     }
 
-    public boolean add(String nombre) throws Exception{
-        diaTrabajoDTO = new DiaTrabajoDTO();
-        diaTrabajoDTO.setNombre(nombre);
+    public boolean add(DiaTrabajoDTO diaTrabajoDTO) throws Exception{
         return diaTrabajoDAO.create(diaTrabajoDTO);
     }
 
-    public boolean update(int idDiaTrabajo, String nombre) throws Exception{
-        diaTrabajoDTO = new DiaTrabajoDTO();
-        diaTrabajoDTO.setNombre(nombre);
-        diaTrabajoDTO.setIdDiaTrabajo(idDiaTrabajo);
+    public boolean update(DiaTrabajoDTO diaTrabajoDTO) throws Exception{
         return diaTrabajoDAO.update(diaTrabajoDTO);
     }
 
@@ -51,4 +46,7 @@ public class DiaTrabajoBL {
         return diaTrabajoDAO.restore(idDiaTrabajo);
     }
     
+    public Integer getMaxRow() throws Exception{
+        return diaTrabajoDAO.getMaxRow();
+    }
 }

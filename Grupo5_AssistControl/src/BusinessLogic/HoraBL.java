@@ -2,8 +2,9 @@
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
 | matheus.velasco@epn.edu.ec   MATHEUSX  |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: MATHEUSX
+Autor: MATHEUSX y mateitopro
 Fecha: 25.feb.2k24
 script: Creacion de la clase HoraBL
 versión: 1.0
@@ -30,16 +31,11 @@ public class HoraBL {
         return horaDTO;
     }
 
-    public boolean add(String nombre) throws Exception{
-        horaDTO = new HoraDTO();
-        horaDTO.setNombre(nombre);
+    public boolean add(HoraDTO horaDTO) throws Exception{
         return horaDAO.create(horaDTO);
     }
 
-    public boolean update(int idHora, String nombre) throws Exception{
-        horaDTO = new HoraDTO();
-        horaDTO.setNombre(nombre);
-        horaDTO.setIdHora(idHora);
+    public boolean update(HoraDTO horaDTO) throws Exception{
         return horaDAO.update(horaDTO);
     }
 
@@ -49,6 +45,10 @@ public class HoraBL {
 
     public boolean restore(int idHora) throws Exception{
         return horaDAO.restore(idHora);
+    }
+
+    public Integer getMaxRow() throws Exception{
+        return horaDAO.getMaxRow();
     }
     
 }

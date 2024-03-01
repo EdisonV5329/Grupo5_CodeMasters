@@ -26,6 +26,10 @@ import UserInterface.CustomerControl.ACButton;
 public class MenuPanelAdmin extends JPanel {
     public  ACButton   
             btnHome                 = new ACButton("Home admin"),
+            btnHora                 = new ACButton("Hora"),
+            btnDiaTrabajo           = new ACButton("Dia trabajo"), 
+            btnEmpleadoHorario      = new ACButton("Empleado horario"),
+            btnEstatus              = new ACButton("Estatus"),          
             btnCargo                = new ACButton("Cargos"),
             btnEmpleado             = new ACButton("Empleados"),
             btnRegistroAsistencia   = new ACButton("Registro asistencias"),
@@ -50,6 +54,10 @@ public class MenuPanelAdmin extends JPanel {
 
         // add-botones
         add(btnHome);
+        add(btnHora);
+        add(btnDiaTrabajo);
+        add(btnEstatus);
+        add(btnEmpleadoHorario);
         add(btnCargo);
         add(btnEmpleado);
         add(btnRegistroAsistencia);

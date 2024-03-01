@@ -2,8 +2,9 @@
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
 | matheus.velasco@epn.edu.ec   MATHEUSX  |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: MATHEUSX
+Autor: MATHEUSX y mateitopro
 Fecha: 25.feb.2k24
 script: Creacion de la clase HoraDAO
 versión: 1.0
@@ -151,6 +152,23 @@ public class HoraDAO extends SQLiteDataHelper implements IDAO<HoraDTO>{
         catch (SQLException e){ 
                 throw new ASException(e.getMessage(), getClass().getName(), "restore()");
             }    
+    }
+
+    public Integer getMaxRow()  throws Exception  {
+        String query =" SELECT COUNT(*) TotalReg FROM Hora "
+                     +" WHERE   Estado ='A' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                return rs.getInt(1);                    // TotalReg
+            }
+        } 
+        catch (SQLException e) {
+            throw new ASException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return 0;
     }
 }
 

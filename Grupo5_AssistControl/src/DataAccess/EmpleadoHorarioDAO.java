@@ -2,8 +2,9 @@
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
 | edison.vera02@epn.edu.ec   dsn_vr      |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: dsn_vr
+Autor: dsn_vr y mateitopro
 Fecha: 25.feb.2k24
 src: Creacion de la clase EmpleadoHorarioDAO
 */
@@ -171,6 +172,22 @@ public class EmpleadoHorarioDAO extends SQLiteDataHelper implements IDAO<Emplead
         catch(SQLException e){
             throw new ASException(e.getMessage(), getClass().getName(), "restore()");
         }
+    }
+
+    public Integer getMaxRow() throws Exception{
+        String query = "SELECT COUNT(*) TotalReg FROM EmpleadoHorario WHERE Estado ='A'";
+        try {
+            Connection conn = openConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+          while (rs.next()) {
+                return rs.getInt(1);
+          }
+        }
+        catch(SQLException e){
+            throw new ASException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return 0;
     }
     
 }

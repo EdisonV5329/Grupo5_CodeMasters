@@ -2,8 +2,9 @@
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
 | edison.vera02@epn.edu.ec   dsn_vr      |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: dsn_vr
+Autor: dsn_vr y mateitopro
 Fecha: 25.feb.2k24
 src: Creacion de la clase EmpleadoHorarioBL
 */
@@ -29,26 +30,11 @@ public class EmpleadoHorarioBL {
         return empleadoHorarioDTO;
     }
 
-    public boolean add(int IdDiaTrabajo, int IdHoraAmEntrada, int IdHoraAmSalida, int IdHoraPmEntrada,
-                       int IdHoraPmSalida) throws Exception{
-        empleadoHorarioDTO = new EmpleadoHorarioDTO();
-        empleadoHorarioDTO.setIdDiaTrabajo(IdDiaTrabajo);
-        empleadoHorarioDTO.setIdHoraAmEntrada(IdHoraAmEntrada);
-        empleadoHorarioDTO.setIdHoraAmSalida(IdHoraAmSalida);
-        empleadoHorarioDTO.setIdHoraPmEntrada(IdHoraPmEntrada);
-        empleadoHorarioDTO.setIdHoraPmSalida(IdHoraPmSalida);
+    public boolean add(EmpleadoHorarioDTO empleadoHorarioDTO) throws Exception{
         return empleadoHorarioDAO.create(empleadoHorarioDTO);
     }
 
-    public boolean update(int IdDiaTrabajo, int IdHoraAmEntrada, int IdHoraAmSalida, int IdHoraPmEntrada,
-                          int IdHoraPmSalida, int idEmpleadoHorario) throws Exception{
-        empleadoHorarioDTO = new EmpleadoHorarioDTO();
-        empleadoHorarioDTO.setIdDiaTrabajo(IdDiaTrabajo);
-        empleadoHorarioDTO.setIdHoraAmEntrada(IdHoraAmEntrada);
-        empleadoHorarioDTO.setIdHoraAmSalida(IdHoraAmSalida);
-        empleadoHorarioDTO.setIdHoraPmEntrada(IdHoraPmEntrada);
-        empleadoHorarioDTO.setIdHoraPmSalida(IdHoraPmSalida);
-        empleadoHorarioDTO.setIdEmpleadoHorario(idEmpleadoHorario);
+    public boolean update(EmpleadoHorarioDTO  empleadoHorarioDTO) throws Exception{
         return empleadoHorarioDAO.update(empleadoHorarioDTO);
     }
 
@@ -59,4 +45,9 @@ public class EmpleadoHorarioBL {
     public boolean restore(int idEmpleadoHorario) throws Exception{
         return empleadoHorarioDAO.restore(idEmpleadoHorario);
     }
+
+    public Integer getMaxRow() throws Exception{
+        return empleadoHorarioDAO.getMaxRow();
+    }
+
 }

@@ -1,9 +1,9 @@
 /*
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
-| matheus.velasco@epn.edu.ec   MATHEUSX  |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: MATHEUSX
+Autor: MATHEUSX y mateitopro
 Fecha: 25.feb.2k24
 script: Creacion de la clase DiaTrabajoDTO
 versión: 1.0
@@ -11,15 +11,19 @@ versión: 1.0
 package DataAccess.DTO;
 
 public class DiaTrabajoDTO {
-    private int    IdDiaTrabajo;
-	private String Nombre;
+    private Integer    IdDiaTrabajo;
     private String Estado;
     private String FechaCrea;
     private String FechaModifica;
 
     public DiaTrabajoDTO(){}
 
-    public DiaTrabajoDTO(int idDiaTrabajo, String nombre, String estado, String fechaCrea, String fechaModifica) {
+    private String Nombre;
+    public DiaTrabajoDTO(String nombre) {
+        Nombre = nombre;
+    }
+
+    public DiaTrabajoDTO(Integer idDiaTrabajo, String nombre, String estado, String fechaCrea, String fechaModifica) {
         this.IdDiaTrabajo = idDiaTrabajo;
         this.Nombre = nombre;
         this.Estado = estado;
@@ -27,10 +31,10 @@ public class DiaTrabajoDTO {
         this.FechaModifica = fechaModifica;
     }
     
-    public int getIdDiaTrabajo() {
+    public Integer getIdDiaTrabajo() {
         return IdDiaTrabajo;
     }
-    public void setIdDiaTrabajo(int idDiaTrabajo) {
+    public void setIdDiaTrabajo(Integer idDiaTrabajo) {
         IdDiaTrabajo = idDiaTrabajo;
     }
     public String getNombre() {

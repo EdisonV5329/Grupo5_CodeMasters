@@ -2,8 +2,9 @@
 |----------------------------------------|
 | (©) 2K24 EPN-FIS, All rights reserved. |
 | matheus.velasco@epn.edu.ec   MATHEUSX  |
+| mateo.simbana@epn.edu.ec   mateitopro  |
 |----------------------------------------|
-Autor: MATHEUSX
+Autor: MATHEUSX y mateitopro
 Fecha: 25.feb.2k24
 script: Creacion de la clase HoraDTO
 versión: 1.0
@@ -11,15 +12,19 @@ versión: 1.0
 package DataAccess.DTO;
 
 public class HoraDTO {
-    private int   IdHora;
-    private String Nombre;
-    private String Estado;
-    private String FechaCrea;
-    private String FechaModifica;
+    private Integer IdHora;
+    private String  Nombre;
+    private String  Estado;
+    private String  FechaCrea;
+    private String  FechaModifica;
     
     public HoraDTO() {}
 
-    public HoraDTO(int idHora, String nombre, String estado, String fechaCrea, String fechaModifica) {
+    public HoraDTO(String nombre) {
+        Nombre = nombre;
+    }
+
+    public HoraDTO(Integer idHora, String nombre, String estado, String fechaCrea, String fechaModifica) {
         this.IdHora = idHora;
         this.Nombre = nombre;
         this.Estado = estado;
@@ -27,10 +32,10 @@ public class HoraDTO {
         this.FechaModifica = fechaModifica;
     }
 
-    public int getIdHora() {
+    public Integer getIdHora() {
         return IdHora;
     }
-    public void setIdHora(int idHora) {
+    public void setIdHora(Integer idHora) {
         IdHora = idHora;
     }
     public String getNombre() {

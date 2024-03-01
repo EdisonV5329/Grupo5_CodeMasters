@@ -1,9 +1,10 @@
 /*
 |------------------------------------------------|
-| (©) 2K24 EPN-FIS, All rights reserved.        |
+| (©) 2K24 EPN-FIS, All rights reserved.         |
 | francisco.torres@epn.edu.ec   Francisco Torres |
+| mateo.simbana@epn.edu.ec   mateitopro          |
 |------------------------------------------------|
-Autor: Francisco Torres
+Autor: Francisco Torres y mateitopro
 Fecha: 24.feb.2k24
 script: Creacion de la clase EstatusDAO
 */
@@ -129,5 +130,21 @@ public class EstatusDAO extends SQLiteDataHelper implements IDAO<EstatusDTO> {
         } catch (Exception e) {
             throw new ASException(e.getMessage(), getClass().getName(), "restore()");
         }
+    }
+
+    public Integer getMaxRow() throws Exception{
+        String query = "SELECT COUNT(*) TotalReg FROM Estatus WHERE Estado ='A'";
+        try {
+            Connection conn = openConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+          while (rs.next()) {
+                return rs.getInt(1);
+          }
+        }
+        catch(SQLException e){
+            throw new ASException(e.getMessage(), getClass().getName(), "getMaxRow()");
+        }
+        return 0;
     }
 }
