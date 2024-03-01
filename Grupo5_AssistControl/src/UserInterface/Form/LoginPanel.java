@@ -23,8 +23,8 @@ public class LoginPanel extends JPanel {
                            lblPassword;
     private ACTextBox      txtUsername;
     private JPasswordField txpPassword;
-    private ACButton        btnLogin;
-    private MainFormAdmin frmMainAdmin;
+    private ACButton       btnLogin;
+    private MainFormAdmin  frmMainAdmin;
 
     public LoginPanel() {
         initializeComponents();
@@ -36,15 +36,12 @@ public class LoginPanel extends JPanel {
     char[] password = txpPassword.getPassword();
 
     // Validación de usuario y contraseña
-    if (frmMainAdmin != null)
-        JOptionPane.showMessageDialog(LoginPanel.this, "La sesion ya esta iniciada!", "Error: Sesion activa 👍", JOptionPane.ERROR_MESSAGE);
-    else if (username.equals("pat") && Arrays.equals(password, "1234".toCharArray())) {
+    if (username.equals("pat") && Arrays.equals(password, "1234".toCharArray())) {
         JOptionPane.showMessageDialog(LoginPanel.this, "Login Exitoso", "Acceso permitido 😊", JOptionPane.INFORMATION_MESSAGE);
         frmMainAdmin = new MainFormAdmin("Admin");
     } else {
         JOptionPane.showMessageDialog(LoginPanel.this, "Error de inicio de sesion", "Acceso denegado 😈", JOptionPane.ERROR_MESSAGE);
     }
-
     // Limpiar campos después de la validación
     txtUsername.setText("");
     txpPassword.setText("");
