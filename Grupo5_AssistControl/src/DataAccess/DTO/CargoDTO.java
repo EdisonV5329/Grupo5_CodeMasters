@@ -19,6 +19,11 @@ public class CargoDTO {
     private String  FechaModifica;
     
     public CargoDTO() {}
+
+    public CargoDTO(String nombre, Integer idEmpleadoHorario) {
+        IdEmpleadoHorario = idEmpleadoHorario;
+        Nombre = nombre;
+    }
     
     public CargoDTO(Integer idCargo, Integer idCargoPadre, Integer IdEmpleadoHorario, String nombre, String estado, String fechaCrea,
     String fechaModifica) {

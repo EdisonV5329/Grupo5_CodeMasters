@@ -75,12 +75,12 @@ public class CargoPanel extends JPanel implements ActionListener{
         try {
             if (ACStyle.showConfirmYesNo("¿Seguro que desea " + ((cargoNull) ? "AGREGAR ?" : "ACTUALIZAR ?"))) {
                 if (cargoNull) {
-                    cargo = new CargoDTO();
+                    cargo = new CargoDTO(txtNombre.getText(), Integer.parseInt(txtIdEmpleadoHorario.getText()));
                 } else {
                     cargo.setNombre(txtNombre.getText());
                     cargo.setIdEmpleadoHorario(Integer.parseInt(txtIdEmpleadoHorario.getText()));
                 }
-                if (!((cargoNull) ? cargoBL.create(cargo.getNombre(), 0, 0) : cargoBL.update(cargo.getIdCargo(), cargo.getNombre(), 0, 0))) // Use the correct methods with additional parameters
+                if (!((cargoNull) ? cargoBL.create(cargo.getNombre(),0,cargo.getIdEmpleadoHorario()) : cargoBL.update(cargo.getIdCargo(), cargo.getNombre(), 0, 0))) // Use the correct methods with additional parameters
                     ACStyle.showMsgError("Error al guardar");
 
                 loadRow();
