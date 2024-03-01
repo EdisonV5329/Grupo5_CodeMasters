@@ -28,8 +28,14 @@ public class App {
     } catch (UnsupportedLookAndFeelException e) {
         e.printStackTrace();
     } 
+<<<<<<< HEAD
+
+   //SplashScreenForm.show();
+   MainForm frmMain = new MainForm("PoliTinder");
+
         SplashScreenForm.show();
-        MainForm frmMain = new MainForm("PoliTinder");
+
+>>>>>>> 1c5ec06c43c321d456224e980413f2c79e91567f
     }
 
     

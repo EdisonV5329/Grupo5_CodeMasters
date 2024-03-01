@@ -1,18 +1,22 @@
 package DataAccess.DTO;
 
 public class RegaloDTO {
-    private int    IdRegalo;
-    private int    IdRegaloTipo;
+    private Integer    IdRegalo;
+    private Integer    IdRegaloTipo;
     private String Nombre;
     private String Estado;
-    private int    Stock;
-    private double   Precio;
+    private Integer    Stock;
+    private Double   Precio;
     private String FechaCrea;
     private String FechaModifica;
     
     public RegaloDTO(){}
 
-    public RegaloDTO(int idRegalo, int idRegaloTipo, String nombre, String estado, int stock, double precio,
+    public RegaloDTO(String nombre) {
+        Nombre = nombre;
+    }
+    
+    public RegaloDTO(Integer idRegalo, Integer idRegaloTipo, String nombre, String estado, Integer stock, Double precio,
             String fechaCrea, String fechaModifica) {
         this.IdRegalo = idRegalo;
         this.IdRegaloTipo = idRegaloTipo;
@@ -24,16 +28,16 @@ public class RegaloDTO {
         this.FechaModifica = fechaModifica;
     }
 
-    public int getIdRegalo() {
+    public Integer getIdRegalo() {
         return IdRegalo;
     }
-    public void setIdRegalo(int idRegalo) {
+    public void setIdRegalo(Integer idRegalo) {
         IdRegalo = idRegalo;
     }
-    public int getIdRegaloTipo() {
+    public Integer getIdRegaloTipo() {
         return IdRegaloTipo;
     }
-    public void setIdRegaloTipo(int idRegaloTipo) {
+    public void setIdRegaloTipo(Integer idRegaloTipo) {
         IdRegaloTipo = idRegaloTipo;
     }
     public String getNombre() {
@@ -48,16 +52,16 @@ public class RegaloDTO {
     public void setEstado(String estado) {
         Estado = estado;
     }
-    public int getStock() {
+    public Integer getStock() {
         return Stock;
     }
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         Stock = stock;
     }
-    public double getPrecio() {
+    public Double getPrecio() {
         return Precio;
     }
-    public void setPrecio(double precio) {
+    public void setPrecio( Double precio) {
         Precio = precio;
     }
     public String getFechaCrea() {
